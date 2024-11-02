@@ -4,7 +4,7 @@
 
 #include "trace.h"
 
-Trace* parseTrace(int lines, char buffer[lines][ADDRWIDTH+3]);
+static Trace* parseTrace(int lines, char buffer[lines][ADDRWIDTH+3]);
     
 Trace* ParseTraceFile(char *fileName, uint64_t* eSize) {
     FILE *fptr = NULL;
@@ -58,7 +58,7 @@ Trace* ParseTraceFile(char *fileName, uint64_t* eSize) {
     return events;
 }
 
-Trace* parseTrace(int lines, char buffer[lines][ADDRWIDTH+3]) {
+static Trace* parseTrace(int lines, char buffer[lines][ADDRWIDTH+3]) {
 	int i;
 	char tempAddress[ADDRWIDTH];
 
