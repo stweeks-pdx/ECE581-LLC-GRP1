@@ -3,13 +3,13 @@
 #include "defines.h"
 
 int main(int argc, char *argv[]) {
-    printf("Number of arguments received: %d\n", argc);
+    if (argc < 2) {
+        printf("Not enough args given to run this program\n");
+	return 1;
+    }
 
-    printf("File given is %s\n", argv[FILELOC]);
-
+    // Variables needed for file operations
     char *fileName = argv[FILELOC];
-
-    // reading the file
     FILE *fptr = NULL;
     char ch = 0;
     uint64_t lines = 0;
@@ -28,12 +28,12 @@ int main(int argc, char *argv[]) {
 
     rewind(fptr);
 
+#if DEBUG
     printf("Got %d lines\n", lines);
+#endif
 
-    char buffer[lines][ADDRWIDTH+2];
+    char buffer[lines][ADDRWIDTH+3];
     uint8_t charCnt = 0;
-
-    printf("lines again %d\n", lines);
 
     for (int i = 0; i < lines; i++) {
         while ((ch = fgetc(fptr)) != '\n') {
@@ -44,10 +44,12 @@ int main(int argc, char *argv[]) {
         charCnt = 0;
     }
 
+#if DEBUG
     for (int i = 0; i < lines; i++) {
         for (int j = 0; buffer[i][j] != '\0'; j++) printf("%c", buffer[i][j]);
         printf("\n");
     }
+#endif
 
     fclose(fptr);
 
