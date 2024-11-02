@@ -3,6 +3,5 @@
 
 #define ADDRWIDTH 8
 #define FILELOC 1
-#define DEBUG 0
 
 #endif // _DEFINES_H_
