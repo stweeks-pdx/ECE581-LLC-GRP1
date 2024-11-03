@@ -3,17 +3,11 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <unistd.h>
+
 #include "defines.h"
+#include "trace.h"
 
 uint8_t traceMode = 0;
-
-typedef struct Traces{
-	uint8_t n;
-	uint32_t address;
-} Trace;
-
-void parseTrace(int lines, char buffer[lines][ADDRWIDTH+3], Trace events[lines]);
 
 int main(int argc, char *argv[]) {
     bool useDefF = false;
@@ -40,67 +34,20 @@ int main(int argc, char *argv[]) {
     char *fileName = NULL;
     if (!useDefF) fileName = argv[FILELOC];
     else          fileName = "..//testing//rwims.din";
-    FILE *fptr = NULL;
-    char ch = 0;
-    uint64_t lines = 0;
 
-    fptr = fopen(fileName, "r");
-    if (fptr == NULL) {
-        printf("Error opening file %s\n", fileName);
-        return 1;
+    // create events buffer an populate it with size returned
+    uint64_t eSize = 0;
+    Trace* events = ParseTraceFile(fileName, &eSize);
+    
+    if (events == NULL) {
+        printf("Received an empty events buffer, exiting with failure\n");
+	return 1;
     }
 
+    // Do processing for events
 
-    // count how many lines for our double buffer
-    while ((ch = fgetc(fptr)) != EOF) {
-        if (ch == '\n') lines++;
-    }
-
-    rewind(fptr);
-
-#ifdef DEBUG
-    printf("Got %ld lines\n", lines);
-#endif
-
-    char buffer[lines][ADDRWIDTH+3];
-    uint8_t charCnt = 0;
-
-    for (int i = 0; i < lines; i++) {
-        while ((ch = fgetc(fptr)) != '\n') {
-            buffer[i][charCnt] = ch;
-            charCnt++;
-        }
-        buffer[i][charCnt] = '\0';
-        charCnt = 0;
-    }
-
-#ifdef DEBUG
-    for (int i = 0; i < lines; i++) {
-        for (int j = 0; buffer[i][j] != '\0'; j++) printf("%c", buffer[i][j]);
-        printf("\n");
-    }
-#endif
-
-    fclose(fptr);
-
-    // Parse buffer contents into struct
-    Trace events[lines];
-    parseTrace(lines, buffer, events);
-
+    // clean up allocated objects before exiting
+    free(events);
     return 0;
 }
 
-void parseTrace(int lines, char buffer[lines][ADDRWIDTH+3], Trace events[lines]){
-	int i;
-	char tempAddress[ADDRWIDTH];
-
-	for(i = 0; i < lines; i++){
-		events[i].n = buffer[i][0] - '0';
-		strncpy(tempAddress, &buffer[i][2], ADDRWIDTH);
-		events[i].address = strtoul(tempAddress, NULL, 16);	
-	
-#ifdef DEBUG
-		printf("CMD = %d\taddress = %08x\n", events[i].n, events[i].address);
-#endif	
-	}	
-}
