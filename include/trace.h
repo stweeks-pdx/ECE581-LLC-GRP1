@@ -10,6 +10,6 @@ typedef struct Traces{
 	uint32_t address;
 } Trace;
 
-Trace* ParseTraceFile(char *fileName, uint64_t* eSize);
+Trace ParseTrace(char* buffer);
 
 #endif // _TRACE_H_
