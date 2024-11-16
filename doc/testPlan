@@ -100,4 +100,4 @@ Unsure if snooped write request is any different than snooped RFO request.
 Inclusivity missing; unsure of local evict cases being sent back to L1
 Test vector generation not complete
 Unsure if move from shared to exclusive (snooped evict?)
-
+Unit Test Cases will be the brunt of the work; do we need to add more integration tests?
