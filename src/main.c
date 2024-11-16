@@ -7,6 +7,8 @@
 #include "defines.h"
 #include "trace.h"
 
+#define FILEBUFFS 12
+
 uint8_t traceMode = 0;
 
 int main(int argc, char *argv[]) {
@@ -32,22 +34,28 @@ int main(int argc, char *argv[]) {
 
     // Variables needed for file operations
     char *fileName = NULL;
+    FILE *fptr = NULL;
+    char buffer[FILEBUFFS];
+
     if (!useDefF) fileName = argv[FILELOC];
     else          fileName = "..//testing//rwims.din";
 
-    // create events buffer an populate it with size returned
-    uint64_t eSize = 0;
-    Trace* events = ParseTraceFile(fileName, &eSize);
-    
-    if (events == NULL) {
-        printf("Received an empty events buffer, exiting with failure\n");
-	return 1;
+    fptr = fopen(fileName, "r");
+    if (fptr == NULL) {
+        printf("Error opening file %s\n", fileName);
+        return 1;
     }
 
-    // Do processing for events
-
+    while(fgets(buffer, FILEBUFFS, fptr) != NULL) {
+	// Do processing for event
+	if(!traceMode) {
+	    printf("file read: %s", buffer);
+	}
+	Trace event = ParseTrace(&buffer[0]);
+	// Process the buffer
+    }
     // clean up allocated objects before exiting
-    free(events);
+    fclose(fptr);
     return 0;
 }
 
