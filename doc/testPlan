@@ -1,0 +1,103 @@
+1) Cache Test Plan
+	A) Unit Test Plan
+		I) pLRU Test Plan
+			a) pLRU initializes properly
+				i) When CREATE is called, all pLRU bits are set to 0
+			b) On update, set TOGGLE to correct value until traverse complete
+				i) 0 if traverse left
+				ii) 1 if traverse right
+				iii) End at correct index
+			c) On evict, traverse properly
+				i) Right if toggle 0
+				ii) Left if toggle 1
+					A) Complement toggle while traversing
+				iii) Return proper index when traverse complete
+		II) Set Test Plan
+			a) Miss on first 16 unique accesses
+				i) Generate read to DRAM
+					A) Get Snoop results to determine correct MESI state
+					B) Generate RFO if WRITE, set MESI state appropriately
+			b) Hit if data present
+				i) update pLRU
+				ii) Broadcast to other caches
+					A) Bus read if READ
+					B) if WRITE
+						1) Move to MODIFIED state
+						2) Issue bus upgrade if in SHARED
+			c) Miss if data not present
+				i) if any INVALID ways, fill them first
+				ii) if all ways !INVALID, use pLRU to evict
+			d) Respond to TRACES
+				i) PrRd L1d
+					A) if HIT
+						1) "Return Data"
+					B) if MISS
+						1) Broadcast BusRd
+						2) Update MESI state based on snoop results (EXCLUSIVE or SHARED)
+				ii) PrWr L1d
+					A) if HIT
+						1) If MODIFIED
+							i) "Update Data"
+						2) If SHARED
+							i) Send BusInval 
+							ii) STATE->MODIFIED
+						3) If EXCLUSIVE
+							i) STATE->MODIFIED
+					B) If MISS and FULL
+						1) pLRU gives which way to evict
+							i) if MODIFIED, generate FLUSH
+							ii) update STATE->MODIFIED
+						3) Send RFO
+						4) Generate DRAM Read
+					C) If MISS and !FULL
+						1) STATE->MODIFIED
+						2) RFO
+						3) Generate DRAM Read
+				iii) PrRd L1i
+					A) Same as PrRd L1d
+				iv) Snooped BusRd
+					A) if HIT
+						1) if EXCLUSIVE, STATE->SHARED
+						2) if MODIFIED, issue FLUSH, STATE->SHARED
+					B) If MISS
+						1) do nothing
+				v) Snooped Write Request
+					A) if HIT
+						1) STATE->INVALID
+						2) If MODIIFED, FLUSH
+					B) if MISS
+						1) do nothing
+				vi) Snooped RFO
+					A) SAME AS ABOVE?
+				vii) Snooped invalidate
+					A) if SHARED
+						1)STATE->INVALID
+					B) else, do nothing
+				viii) Clear cache, reset state
+					A) STATE->INVALIDATE x16 per set
+				ix) Print contents and state of all valid cache lines
+					A) IF invalid
+						1) Do nothing
+					B) ELSE
+						1) Send State, tag, and index to STDOUT
+			e) ADD INCLUSIVITY CASES WHEN MORE KNOWLEDGE ACQUIRED
+
+	B) Environment Test Plan
+		I) Integration Test Plan
+			a) No evictions occur if any way STATE=INVALID
+			b) Proper evictions occur if no way STATE=INVALID and MISS
+				i) Correct way gets evicted on MISS and FULL
+			c) Inclusivity placeholder
+			d) pLRU only responds to its own set
+			e) set responds only to its own index
+			f) way responds only to its own set
+			g) 
+		II) Trace Test Plan
+			a) Generate above cases as needed; placeholder to remind us to generate test vectors and proper trace files to fulfill test plan
+
+KNOWN ISSUES:
+Unsure if snooped write request is any different than snooped RFO request.
+Inclusivity missing; unsure of local evict cases being sent back to L1
+Test vector generation not complete
+Unsure if move from shared to exclusive (snooped evict?)
+Unit Test Cases will be the brunt of the work; do we need to add more integration tests?
