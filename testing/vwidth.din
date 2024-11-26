@@ -1,0 +1,16 @@
+0 0BADBAD0 // Given rwin test with known results
+0 1BADBAD2
+1 2BADBAD0
+6 0BADBAD0
+6 1BADBAD1
+6 2BADBAD0
+9 BAD0BAD0
+2 408ed4   // Some traces with shorter width
+0 10019d94
+2 408ed8
+1 10019d88
+2 408edc
+0 10013220
+2 408ee0
+2 408ee4
+1 100230b8
