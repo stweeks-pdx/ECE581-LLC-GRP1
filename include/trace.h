@@ -8,6 +8,9 @@
 typedef struct Traces{
 	uint8_t n;
 	uint32_t address;
+	uint8_t byte;
+	uint16_t index;
+	uint16_t tag;
 } Trace;
 
 Trace ParseTrace(char* buffer);
