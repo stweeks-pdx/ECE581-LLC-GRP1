@@ -1,0 +1,9 @@
+Nathan's todo list;
+
+pLRU implementation
+	Start with data structure
+Set implementation
+	Start with data structure
+
+Keep things parameterized
+
