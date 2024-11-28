@@ -4,6 +4,10 @@
 #define ADDRWIDTH 8
 #define FILELOC 1
 
+//Cache spec defines
+#define ASSOCIATIVITY 16
+#define SETS 16*1024
+
 //Defines for Parsing shifts and masks
 #define BYTESELECTWIDTH 6
 #define BYTESELECTMASK	0x3F
