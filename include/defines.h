@@ -3,6 +3,7 @@
 
 #define ADDRWIDTH 8
 #define FILELOC 1
+#define FILEBUFFS 60
 
 //Cache spec defines
 #define ASSOCIATIVITY 16
