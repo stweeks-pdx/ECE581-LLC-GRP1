@@ -27,11 +27,11 @@ typedef enum {
 	READ;
 	WRITE;
 	UPGRADE;
-} nameME//todo this thing
-	
+	FLUSH;
+} busCmds
 
 typedef struct { 
-	uint64_t tag;
+	uint16_t tag;
 	mesi state;
 } way;
 
@@ -46,6 +46,6 @@ uint32_t evict(void);
 
 typedef struct {
 	set cache[SETS];
-} cache;
+} cacheStruct;
 
 
