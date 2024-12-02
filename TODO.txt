@@ -1,9 +1,44 @@
-Nathan's todo list;
+CACHE FLOW
 
-pLRU implementation
-	Start with data structure
-Set implementation
-	Start with data structure
+Check for hit or miss
+	if hit, change state based on current state and RD/WR, update plru
+	if miss, evict with plru, update plru, talk to L1 as needed
 
-Keep things parameterized
+MAKE HIT OR MISS FUNCTION
 
+check what the command is
+	if from L1, fill the cache and broadcast as needed with plru updates
+		on evict, no broadcast needed
+		on miss, broadcast read/rfo, check if we are the only ones with the data
+	if from bus, check for hit or miss with function
+		if miss, do nothing
+		if hit, broadcast based on snooped command and change state as necessary
+
+BROADCAST FUNCTION(0-2)
+SNOOPRESPOND FUNCTION(3-6)
+CLEAR FUNCTION(9)
+REPORT FUNCTION(8)
+
+
+if(read&&hit)
+	update read counter, update hit counter
+elseif(read&&miss)
+	find somewhere to put it(see if(evict) note)
+	update read counter, update miss counter
+	tell everyone we went to dram
+elseif(write&&hit)
+	update write counter, update hit counter
+	if first write to way, tell everyone we are writing
+elseif(write&&miss)
+	update write counter, update miss counter
+	tell everyone we are writing
+
+if(evict)
+	tell L1 we are evicting something they have if they have it
+
+if(theyread)
+	we are sharing
+elseif(theywrite)
+	invalidate what we have if we have it
+elseif(theyTellUsToInvalidate)
+	invalidate what we have if we have it

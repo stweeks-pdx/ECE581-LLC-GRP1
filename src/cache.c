@@ -17,53 +17,51 @@ return;
 
 }
 
-void serviceL1Cache(Trace L1Request){
-
-	if(checkForPresence(L1Request.tag, L1Request.index) == HIT){
-		switch (L1Request.n){
-		0:
-		2: reads++;
-		   break;
-		1: writes++;
-		   break;
-		}
-	}
-	else {
-	store(L1Request.index, L1Request.tag);
-}
-
-void serviceCoherence(Trace busRequest){
-}
-
 requestResult checkForPresence(uint16_t tag, uint16_t index){
 	for(int i=0; i<ASSOCIATIVITY; i++){
 		if (LLC.cache[index].myWay[i].tag == tag){
-		updatePLRU(LLC.cache[index].plru, i);
-		hits++;
-		return HIT;
+			if (LLC.cache[index].myWay[i].state != INVALID){
+			updatePLRU(LLC.cache[index].plru, i);
+			hits++;
+			//PLACEHOLDER FOR OUTPUT MESSAGING???
+			return HIT;
+			}
 		}
 	}
 	misses++;
+	//PLACEHOLDER FOR OUTPUT MESSAGING???
 	return MISS;
 }
 
-void store(uint16_t index, uint16_t tag, uint8_t command){
-	int victim = 0;
-	if(setIsFull(LLC.cache[index])){
-		victim = victimPLRU(LLC.cache[index].plru);
-		if((LLC.cache[index].myWay[victim].state) == MODIFIED)
-			busOp(WRITE, 
-		LLC.cache[index].myWay[victim].tag = tag;
-		mesiStateUpdate(index, tag, command);
-		if (dataInL1)
-			tellL1ToFlush();
+
+int setNotFull(uint16_t index){
+	for(int i=0; i<ASSOCIATIVITY; i++){
+		if(getState(index, i) == INVALID)
+			return i;
 	}
+return -1;
 }
 
-//write coherence broadcast function
+void messageToL1(inslusiveMsg message, uint32_t address){
+	if (normal)
+		printf("L2: %d %h\n", message, address);
+}
 
-//dataInL1 function
+void displayTraceResult(uint32_t hits, uint32_t misses, uint32_t reads, uint32_t writes){
+	printf("Hits: %d, Misses: %d, Reads: %d, Writes: %d, Hit ratio: %f", hits, misses, reads, writes, hits/misses);
+}
 
-//tellL1ToFlush function
+void printCache(void){
+	for (int i=0; i<SETS; i++)
+		for (int j=0; j<ASSOCIATIVITY; j++)
+			if(getState(i, j) !=INVALID)
+				printf("Tag = %X, State = %d", LLC.cache[i].myWay[j].tag, LLC.cache[i].myWay.state); 
+}
 
-//MESI state transition
+void resetCache(void){
+	for (int i=0; i<SETS; i++)
+		for (int j=0; j<ASSOCIATIVITY-1, j++)
+			LLC.cache[i].plru[j] = false;
+		for (int j=0; j<ASSOCIATIVITY; j++)
+			LLC.cache[i].myWay[j].state = INVALID;
+}
