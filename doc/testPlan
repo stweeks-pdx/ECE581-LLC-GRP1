@@ -62,13 +62,13 @@
 					B) If MISS
 						1) do nothing
 				v) Snooped Write Request
+					A) Do nothing (We shouldn't have this)
+				vi) Snooped RFO
 					A) if HIT
 						1) STATE->INVALID
 						2) If MODIIFED, FLUSH
 					B) if MISS
 						1) do nothing
-				vi) Snooped RFO
-					A) SAME AS ABOVE?
 				vii) Snooped invalidate
 					A) if SHARED
 						1)STATE->INVALID
