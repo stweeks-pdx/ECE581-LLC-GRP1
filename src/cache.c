@@ -27,9 +27,70 @@ void cache(Trace request){ //Switch case for n here?
 				break;
 			}
 		case 3:
-
-}
-		
+      if(checkForPresence(request.tag,request.index) == HIT){
+        if(getState(request.index,request.way) == MODIFIED){
+          putSnoopResult(request.address,HITM);
+          busOperation(WRITE,request.address);
+        }
+        else {
+          putSnoopResult(request.address,HIT);
+        }
+      }
+      else {
+        putSnoopResult(request.address,NOHIT);
+      }
+      updateState(request.index,request.way,request.command,getSnoopResult(request.address));
+      break;
+    case 4:
+      if(checkForPresence(request.tag,request.index) == HIT) {
+        if(getState(request.index,request.way) == MODIFIED){
+          putSnoopResult(request.address,HITM);
+          busOperation(WRITE,request.address);
+        }
+        else {
+          putSnoopResult(request.address,HIT);
+        }
+      }
+      else {
+        putSnoopResult(request.address,NOHIT);
+      }
+      updateState(request.index,request.way,request.command,getSnoopResult(request.address));
+      break;
+    case 5:
+      if(checkForPresence(request.tag,request.index) == HIT){
+        if(getState(request.index,request.way) == MODIFIED){
+          putSnoopResult(request.address,HITM);
+        }
+        else {
+          putSnoopResult(request.address,HIT);
+        }
+      }
+      else {
+        putSnoopResult(request.address,NOHIT);
+      }
+      updateState(request.index,request.way,request.command,getSnoopResult(request.address));
+      break;
+    case 6: 
+      if(checkForPresence(request.tag,request.index == HIT)){
+        if(getState(request.index,request.way) == MODIFIED){
+          putSnoopResult(request.address,HITM);
+        }
+        else{
+          putSnoopResult(request.address,HIT);
+        }
+      }
+      else{
+        putSnoopResult(request.address,NOHIT);
+      }
+      updateState(request.index,request.way,request.command,getSnoopResult(request.address));
+      break;
+    case 8:
+      resetCache();
+      break;
+    case 9:
+      printCache();
+      break;
+  }
 return;
 }
 
@@ -58,7 +119,7 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
     		}
     		else {
       			if(getState(index,victim) == INVALID)
-			        busOperation(WRITE,address);
+			        busOperation(RWIM,address);
   			else if(getState(index,victim) == SHARED)
 			        busOperation(INVALIDATELINE,address);
     		}
@@ -74,7 +135,7 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 		}
 		else{
 			if(getState(index,emptyWay) == INVALID)
-				busOperation(WRITE,address);
+				busOperation(RWIM,address);
 			else if(getState(index,emptyWay) == SHARED)
 				busOperation(INVALIDATELINE,address);
 	  }
@@ -103,6 +164,7 @@ int getSnoopResult(uint32_t address){
 			break;
 	}
 	return returnMe;
+snoopResult getSnoopResult(uin32_t address){
 }
 
 /*putSnoopResult:Simulate our snooping of other caches*/
@@ -120,7 +182,7 @@ void updateState(uint16_t index, int way, uint8_t command, int result){
 	switch(getState(index,way)){
 		case INVALID:if((command == 0 || command == 2) && (result == HIT || result == HITM))
 				     LLC.cache[index].myWay[way].state = SHARED;
-			     else if(command == 0 || (command == 2 && result == MISS))
+			     else if((command == 0 || command == 2) && (result == MISS))
 				     LLC.cache[index].myWay[way].state = EXCLUSIVE;
 			     else if(command == 1)
 				     LLC.cache[index].myWay[way].state = MODIFIED;
