@@ -211,6 +211,8 @@ void updateState(uint16_t index, int way, uint8_t command, int result){
 			     else
 				     LLC.cache[index].myWay[way].state = EXCLUSIVE;
 			     break;
+	}
+}
 
 int setNotFull(uint16_t index){
 	for(int i=0; i<ASSOCIATIVITY; i++){
