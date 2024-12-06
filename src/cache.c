@@ -39,7 +39,7 @@ void cache(Trace request){ //Switch case for n here?
       else {
         putSnoopResult(request.address,NOHIT);
       }
-      updateState(request.index,request.tag,request.command,getSnoopResult(request.address));
+      updateState(request.index,request.tag,request.n,getSnoopResult(request.address));
       break;
     case 4:
       if(checkForPresence(request.tag,request.index) == HIT) {
@@ -54,7 +54,7 @@ void cache(Trace request){ //Switch case for n here?
       else {
         putSnoopResult(request.address,NOHIT);
       }
-      updateState(request.index,request.tag,request.command,getSnoopResult(request.address));
+      updateState(request.index,request.tag,request.n,getSnoopResult(request.address));
       break;
     case 5:
       if(checkForPresence(request.tag,request.index) == HIT){
@@ -68,7 +68,7 @@ void cache(Trace request){ //Switch case for n here?
       else {
         putSnoopResult(request.address,NOHIT);
       }
-      updateState(request.index,request.tag,request.command,getSnoopResult(request.address));
+      updateState(request.index,request.tag,request.n,getSnoopResult(request.address));
       break;
     case 6: 
       if(checkForPresence(request.tag,request.index == HIT)){
@@ -82,7 +82,7 @@ void cache(Trace request){ //Switch case for n here?
       else{
         putSnoopResult(request.address,NOHIT);
       }
-      updateState(request.index,request.tag,request.command,getSnoopResult(request.address));
+      updateState(request.index,request.tag,request.n,getSnoopResult(request.address));
       break;
     case 8:
       resetCache();
