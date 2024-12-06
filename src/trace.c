@@ -9,12 +9,18 @@ Trace ParseTrace(char* buffer) {
 
 	Trace event = {};
 
+	// Parse command and address
         event.n = buffer[0] - '0';
 	strncpy(tempAddress, &buffer[2], ADDRWIDTH);
 	event.address = strtoul(tempAddress, NULL, 16);	
 	
+	// Parse address into tag, index, and byte
+	event.byte = event.address & BYTESELECTMASK;
+	event.index = (event.address >> BYTESELECTWIDTH) & INDEXMASK;
+	event.tag = (event.address >> (BYTESELECTWIDTH + INDEXWIDTH)) & TAGMASK;
+	
 #ifdef DEBUG
-	printf("CMD = %d\taddress = %08x\n", event.n, event.address);
+	printf("CMD = %d\taddress = %08x\t tag = %03x index = %04x byte = %02x\n", event.n, event.address, event.tag, event.index, event.byte);
 #endif	
 
 	return event;

@@ -7,7 +7,7 @@
 #include "defines.h"
 #include "trace.h"
 
-#define FILEBUFFS 12
+#define FILEBUFFS 60
 
 uint8_t traceMode = 0;
 
