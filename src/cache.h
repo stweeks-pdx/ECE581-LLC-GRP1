@@ -48,4 +48,4 @@ typedef struct {
 	set cache[SETS];
 } cacheStruct;
 
-
+//Note to Nathan: enum members need to have unique names since they are global
