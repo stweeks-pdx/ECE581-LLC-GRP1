@@ -1,6 +1,6 @@
 #include "cache.h"
-#include "trace.h"
-#include <stdbool.h>
+#include <stdio.h>
+#include <math.h>
 
 static cacheStruct LLC;
 
@@ -28,30 +28,28 @@ void cache(Trace request){ //Switch case for n here?
 			}
 		case 3:
 
-
+}
 		
 return;
 }
 
-requestResult checkForPresence(uint16_t tag, uint16_t index){
+int checkForPresence(uint16_t tag, uint16_t index){
 	for(int i=0; i<ASSOCIATIVITY; i++){
 		if (LLC.cache[index].myWay[i].tag == tag){
 			if (LLC.cache[index].myWay[i].state != INVALID){
 			updatePLRU(LLC.cache[index].plru, i);
 			hits++;
-			//PLACEHOLDER FOR OUTPUT MESSAGING???
 			return HIT;
 			}
 		}
 	}
 	misses++;
-	//PLACEHOLDER FOR OUTPUT MESSAGING???
 	return MISS;
 }
 
 void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 	int victim = 0;
-	int emptyWay = setNotFull(LLC.cache[index]);
+	int emptyWay = setNotFull(index);
 	if(emptyWay == -1){
 		victim = victimPLRU(LLC.cache[index].plru);
 		if(command != 1){ 
@@ -62,12 +60,12 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
       			if(getState(index,victim) == INVALID)
 			        busOperation(WRITE,address);
   			else if(getState(index,victim) == SHARED)
-			        busOperation(UPGRADE,address);
+			        busOperation(INVALIDATELINE,address);
     		}
   		LLC.cache[index].myWay[victim].tag = tag;
   		updateState(index,victim,command,getSnoopResult(address));
  			updatePLRU(LLC.cache[index].plru,victim);
-			messageToL1(EVICT,address);
+			messageToL1(EVICTLINE,address);
 	}
   else{
 		if(command !=1){
@@ -78,7 +76,7 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 			if(getState(index,emptyWay) == INVALID)
 				busOperation(WRITE,address);
 			else if(getState(index,emptyWay) == SHARED)
-				busOperation(UPGRADE,address);
+				busOperation(INVALIDATELINE,address);
 	  }
 		  LLC.cache[index].myWay[emptyWay].tag = tag;
 		  updateState(index,emptyWay,command,getSnoopResult(address));	
@@ -87,47 +85,42 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 }
 
 
-void busOperation(busCmds command,uint32_t address){
-	snoopResult = getSnoopResult(address);
+void busOperation(int command,uint32_t address){
+	int result = getSnoopResult(address);
 	if(normalMode)
-		printf("BusOp: %d, Address: %h, Snoop Result %d\n",command,address,snoopResult);
+		printf("BusOp: %d, Address: %X, Snoop Result %d\n",command,address,result);
 	}
 
-snoopResult getSnoopResult(uin32_t address){
-    	return (address & 0x3); 
+int getSnoopResult(uint32_t address){
+	int returnMe;
+	switch (address & MASK2LSB){
+		case 10:
+		case 11: returnMe = NOHIT;
+			break;
+		case 00: returnMe = HIT;
+			break;
+		case 01: returnMe = HITM;
+			break;
+	}
+	return returnMe;
 }
 
 /*putSnoopResult:Simulate our snooping of other caches*/
-void putSnoopResult(uint32_t address, snoopResult message){
+void putSnoopResult(uint32_t address, int message){
+	
 	if(normalMode)
-		printf("snoopResult: %d, Address: %h\n",message,address); 
+		printf("int: %d, Address: %X \n",message,address); 
 }	
 
-/*Simulate communication to L1 cache*/
-void messageToL1(inclusiveMsg message, uint32_t address){
-	if(normalMode)
-		printf("L2: %d %h\n",message,address);
-}
-
-void updatePLRU(bool plru[],int way){
-	uint8_t index = 0;
-	uint8_t level = 
-
-}
-
-int victimPLRU(bool plru[]){
-
-}
-
-mesi getState(uint16_t index, int way){
+char getState(uint16_t index, int way){
 	return LLC.cache[index].myWay[way].state;
 }
 
-void updateState(uint16_t index, int way, uint8_t command, snoopResult result){
+void updateState(uint16_t index, int way, uint8_t command, int result){
 	switch(getState(index,way)){
 		case INVALID:if((command == 0 || command == 2) && (result == HIT || result == HITM))
 				     LLC.cache[index].myWay[way].state = SHARED;
-			     else if(command == 0 || command == 2 && result == MISS)
+			     else if(command == 0 || (command == 2 && result == MISS))
 				     LLC.cache[index].myWay[way].state = EXCLUSIVE;
 			     else if(command == 1)
 				     LLC.cache[index].myWay[way].state = MODIFIED;
@@ -168,26 +161,51 @@ int setNotFull(uint16_t index){
 return -1;
 }
 
-void messageToL1(inslusiveMsg message, uint32_t address){
-	if (normal)
-		printf("L2: %d %h\n", message, address);
+void messageToL1(int message, uint32_t address){
+	if (normalMode)
+		printf("L2: %d %X \n", message, address);
 }
 
 void displayTraceResult(uint32_t hits, uint32_t misses, uint32_t reads, uint32_t writes){
-	printf("Hits: %d, Misses: %d, Reads: %d, Writes: %d, Hit ratio: %f", hits, misses, reads, writes, hits/misses);
+	float hitRate = hits/misses;
+	printf("Hits: %d, Misses: %d, Reads: %d, Writes: %d, Hit ratio: %f", hits, misses, reads, writes, hitRate);
 }
 
 void printCache(void){
 	for (int i=0; i<SETS; i++)
 		for (int j=0; j<ASSOCIATIVITY; j++)
 			if(getState(i, j) !=INVALID)
-				printf("Tag = %X, State = %d", LLC.cache[i].myWay[j].tag, LLC.cache[i].myWay.state); 
+				printf("Tag = %X, State = %d", LLC.cache[i].myWay[j].tag, LLC.cache[i].myWay->state); 
 }
 
 void resetCache(void){
-	for (int i=0; i<SETS; i++)
-		for (int j=0; j<ASSOCIATIVITY-1, j++)
+	for (int i=0; i<SETS; i++){
+		for (int j=0; j<ASSOCIATIVITY-1; j++)
 			LLC.cache[i].plru[j] = false;
 		for (int j=0; j<ASSOCIATIVITY; j++)
 			LLC.cache[i].myWay[j].state = INVALID;
+	}
+}
+
+
+
+void updatePLRU(uint8_t plru[], int index){
+	int level = log2(ASSOCIATIVITY);
+	int curPlace = 0;
+	for( ; level > 0 ; level--){
+	plru[curPlace] = (index >> (level-1)) & 0x1;
+	curPlace = ((curPlace + 1)*2+plru[curPlace])-1;
+	}
+}
+
+int victimPLRU(uint8_t plru[]){
+ 	int way = 0;
+ 	int level = log2(ASSOCIATIVITY);
+ 	int index = 0;
+ 	
+ 	for( ; level > 0 ; level--){
+	way |= ~plru[index] << (level-1);
+	index = ((index + 1)*2+(~plru[index]))-1; 
+	}
+	return way;
 }

@@ -12,10 +12,10 @@ ODIR=obj
 EXE=bin
 
 
-_DEPS = defines.h trace.h
+_DEPS = defines.h trace.h cache.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o trace.o
+_OBJ = main.o trace.o cache.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(EXE):

@@ -1,56 +1,50 @@
+#ifndef _CACHE_H
+#define _CACHE_H
+#include "trace.h"
+#include "defines.h"
+#include <stdbool.h>
+#include <stdint.h>
 #define MASK2LSB 0x3
 
-typedef enum {
-	INVALID;
-	MODIFIED;
-	EXCLUSIVE;
-	SHARED;
-} mesi;
+//MESI States
+#define MODIFIED 'M'
+#define EXCLUSIVE 'E'
+#define SHARED 'S'
+#define INVALID 'I'
 
-typedef enum {
-	MISS;
-	HIT;
-	HITM;
-} snoopResult;
+//Address Presence/Snoop Results
+#define MISS 0
+#define HIT 1
+#define HITM 2
+#define NOHIT 3
 
-typedef enum {
-	MISS;
-	HIT;
-} requestResult;
+//L1 Messages
+#define GETLINE 0
+#define	SENDLINE 1
+#define	INVALIDATELINE 2
+#define	EVICTLINE 3
 
-typedef enum {
-	GET;
-	SEND;
-	INVALIDATE;
-	EVICT;
-} inclusiveMsg;
-
-typedef enum { 
-	READ;
-	WRITE;
-	INVALIDATE;
-	RWIM;
-} busCmd
+//Bus Commands 
+#define	READ 0
+#define	WRITE 1
+#define	INVALIDATE 2
+#define	RWIM 3
 
 typedef struct { 
 	uint16_t tag;
-	mesi state;
+	char state;
 } way;
 
 typedef struct { 
 	way myWay[ASSOCIATIVITY];
-	bool plru[ASSOCIATIVITY-1];
+	uint8_t plru[ASSOCIATIVITY-1];
 } set;
-
-void update(way addressedWay);
-
-uint32_t evict(void);
 
 typedef struct {
 	set cache[SETS];
 } cacheStruct;
 
-//TODO: to Nathan: enum members need to have unique names since they are global
+
 //*******************FUNCTION PROTOTYPES**********************************
 
 /*
@@ -70,7 +64,7 @@ Arguments:
 
 	returns requestResult, either hit or miss
 */
-requestResult checkForPresence(uint16_t tag, uint16_t index);
+int checkForPresence(uint16_t tag, uint16_t index);
 
 /*
 store: Uses index to find a place to store a particular tag. Uses command to broadcast proper snoop message on bus.
@@ -79,8 +73,9 @@ Arguments:
 	tag: unsigned 16 bit interger that associated data to unique physical address
 	index: unsigned 16 bit integer that points us to the correct set for our tag
 	command: one of 9 commands for this cache simulation
+	address: address to be broadcasted on bus if needed
 */
-void store(uint16_t tag, uint16_t index, uint8_t command);
+void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address);
 
 /* 
 updatePLRU: Updates the plru bits based on recent memory access
@@ -89,7 +84,7 @@ Arguments:
 	plru[]: The desired plru array that needs updated
 	index: The index of the way that is being accessed, should be 0-15
 */
-void updatePLRU(bool plru[], int index);
+void updatePLRU(uint8_t plru[], int index);
 
 /*
 setNotFull: Checks if a set has room
@@ -109,7 +104,7 @@ Arguments:
 
 Returns the index of the way that needs to be evicted
 */
-int victimPLRU(bool plru[]);
+int victimPLRU(uint8_t plru[]);
 
 /*
 busOperation: Broadcasts the command and address IAW the MESI protocol based on what the cache just did
@@ -118,7 +113,7 @@ Arguemnts:
 	busOp: The operation that we are putting out on the bus
 	address: The address that other caches need to check for
 */
-void busOperation(busCmd busOp, uint32_t address);
+void busOperation(int busOp, uint32_t address);
 
 /*
 getSnoopResult: Checks the trace to get the snoop result. For sim purposes, uses the 2LSB of the address.
@@ -126,9 +121,9 @@ getSnoopResult: Checks the trace to get the snoop result. For sim purposes, uses
 Arguments:
 	address: Address that we are acting on that needs snoop information for state changes
 
-returns snoopResult based on 2LSB of address
+returns int based on 2LSB of address
 */
-snoopResult getSnoopResult(uint32_t address);
+int getSnoopResult(uint32_t address);
 
 /*
 putSnoopResult: Tell other caches if we have an address or not
@@ -137,7 +132,7 @@ Arguments:
 	address: The address that other caches are accessing
 	message: Tells them if we have it, and if it is modified
 */
-void putSnoopResult(uint32_t address, snoopResult message);
+void putSnoopResult(uint32_t address, int message);
 
 /*
 messageToL1: Sends a message to L1 to maintain inclusivity
@@ -146,7 +141,7 @@ Arguments:
 	message: Telling L1 what to do with an address
 	address: What address L1 needs to act on
 */
-void messageToL1(inclusiveMsg message, uint32_t address);
+void messageToL1(int message, uint32_t address);
 
 /*
 getState: Gets the MESI state of a given way
@@ -157,7 +152,7 @@ Arguments:
 
 Returns the MESI state of the requested cache line
 */
-mesi getState(uint16_t index, int way);
+char getState(uint16_t index, int way);
 
 /*
 displayTraceResult: Displays the cache's usage statistic for a given simulation
@@ -189,5 +184,5 @@ Arguments:
 	command: What command we are performing
 	result: Snoop results from the bus
 */
-void updateState(uint16_t index, int way, uint8_t command, snoopResult result);
-
+void updateState(uint16_t index, int way, uint8_t command, int result);
+#endif
