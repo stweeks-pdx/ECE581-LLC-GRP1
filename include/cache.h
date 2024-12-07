@@ -30,6 +30,8 @@
 #define	INVALIDATE 2
 #define	RWIM 3
 
+extern uint8_t normalMode;
+
 typedef struct { 
 	uint16_t tag;
 	char state;
@@ -185,4 +187,15 @@ Arguments:
 	result: Snoop results from the bus
 */
 void updateState(uint16_t index, int way, uint8_t command, int result);
+
+/*
+findWay: Gives the index of the way that matches the given tag
+
+Arguments:
+  index: Points us to the correct set in the cache
+  tag: the tag that we want to find in the set
+
+Returns the index of the way that holds the tag that matches the one we give
+*/
+int findWay(uint16_t index, uint16_t tag);
 #endif
