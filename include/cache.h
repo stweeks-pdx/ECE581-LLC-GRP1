@@ -30,6 +30,17 @@
 #define	INVALIDATE 2
 #define	RWIM 3
 
+//Trace Commands
+#define L1DATAREAD 0
+#define L1WRITE 1
+#define L1INSTREAD 2
+#define SNOOPEDREAD 3
+#define SNOOPEDWRITE 4
+#define SNOOPEDRWIM 5
+#define SNOOPEDINVAL 6
+#define CLEARCACHE 8
+#define PRINTCACHE 9
+
 extern uint8_t normalMode;
 
 typedef struct { 
@@ -158,14 +169,8 @@ char getState(uint16_t index, uint16_t tag);
 
 /*
 displayTraceResult: Displays the cache's usage statistic for a given simulation
-
-Arguments:
-	hits: The number of hits in this simulation
-	misses: The number of misses in this simulation
-	reads: The number of reads in this simulation
-	writes: the number of writes in this simulation
 */
-void displayTraceResult();
+void displayTraceResult(void);
 
 /*
 resetCache: Invalidates all cache lines and resets all plrus
