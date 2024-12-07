@@ -96,7 +96,7 @@ Arguments:
 
 returns the index for the first empty way found, -1 if full.
 */
-int setNotFull(uint16_t index, uint16_t tag);
+int setNotFull(uint16_t index);
 
 /*
 victimPLRU: Reads PLRU bits to find which way needs replaced on collision miss, then updates most recently accessed memory location
@@ -165,7 +165,7 @@ Arguments:
 	reads: The number of reads in this simulation
 	writes: the number of writes in this simulation
 */
-void displayTraceResult(uint32_t hits, uint32_t misses, uint32_t reads, uint32_t writes);
+void displayTraceResult();
 
 /*
 resetCache: Invalidates all cache lines and resets all plrus
@@ -186,7 +186,7 @@ Arguments:
 	command: What command we are performing
 	result: Snoop results from the bus
 */
-void updateState(uint16_t index, int way, uint8_t command, int result, uint16_t tag);
+void updateState(uint16_t index, int way, uint8_t command, int result, uint16_t tag, uint32_t address);
 
 /*
 findWay: Gives the index of the way that matches the given tag
@@ -203,4 +203,6 @@ int findWay(uint16_t index, uint16_t tag);
   cacheInit: Initializes the cache by setting all the ways in every set to INVALID
 */
 void cacheInit(void);
+
+void plruInit(void);
 #endif

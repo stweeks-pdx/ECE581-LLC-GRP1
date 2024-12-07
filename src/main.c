@@ -57,6 +57,7 @@ int main(int argc, char *argv[]) {
 	// Process the buffer
     }
     // clean up allocated objects before exiting
+    displayTraceResult();
     fclose(fptr);
     return 0;
 }
