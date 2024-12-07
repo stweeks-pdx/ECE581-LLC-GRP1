@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
         printf("Error opening file %s\n", fileName);
         return 1;
     }
-
+    cacheInit();
     while(fgets(buffer, FILEBUFFS, fptr) != NULL) {
 	// Do processing for event
 	if(normalMode) {

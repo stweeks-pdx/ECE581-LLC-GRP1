@@ -96,7 +96,7 @@ Arguments:
 
 returns the index for the first empty way found, -1 if full.
 */
-int setNotFull(uint16_t index);
+int setNotFull(uint16_t index, uint16_t tag);
 
 /*
 victimPLRU: Reads PLRU bits to find which way needs replaced on collision miss, then updates most recently accessed memory location
@@ -154,7 +154,7 @@ Arguments:
 
 Returns the MESI state of the requested cache line
 */
-char getState(uint16_t index, int way);
+char getState(uint16_t index, uint16_t tag);
 
 /*
 displayTraceResult: Displays the cache's usage statistic for a given simulation
@@ -186,7 +186,7 @@ Arguments:
 	command: What command we are performing
 	result: Snoop results from the bus
 */
-void updateState(uint16_t index, int way, uint8_t command, int result);
+void updateState(uint16_t index, int way, uint8_t command, int result, uint16_t tag);
 
 /*
 findWay: Gives the index of the way that matches the given tag
@@ -198,4 +198,9 @@ Arguments:
 Returns the index of the way that holds the tag that matches the one we give
 */
 int findWay(uint16_t index, uint16_t tag);
+
+/*
+  cacheInit: Initializes the cache by setting all the ways in every set to INVALID
+*/
+void cacheInit(void);
 #endif

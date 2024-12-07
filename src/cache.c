@@ -101,6 +101,7 @@ int findWay(uint16_t index, uint16_t tag){
       return i;
     }
   }
+  return -1;
 }
 
 
@@ -120,7 +121,7 @@ int checkForPresence(uint16_t tag, uint16_t index){
 
 void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 	int victim = 0;
-	int emptyWay = setNotFull(index);
+	int emptyWay = setNotFull(index,tag);
 	if(emptyWay == -1){
 		victim = victimPLRU(LLC.cache[index].plru);
 		if(command != 1){ 
@@ -135,11 +136,11 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
     		}
   		LLC.cache[index].myWay[victim].tag = tag;
   		updateState(index, victim, command, getSnoopResult(address), tag);
- 			updatePLRU(LLC.cache[index].plru,victim);
+ 			updatePLRU(LLC.cache[index].plru, victim);
 			messageToL1(EVICTLINE, address);
 	}
   else{
-		if(command !=1){
+		if(command != 1){
 		  if(getState(index, tag) == INVALID)
 	 			busOperation(READ, address);
 		}
@@ -163,9 +164,9 @@ void busOperation(int command,uint32_t address){
 	}
 
 int getSnoopResult(uint32_t address){
-	int returnMe;
+	int returnMe = 0;
 	switch (address & MASK2LSB){
-		case 10:
+		case 10: 
 		case 11: returnMe = NOHIT;
 			break;
 		case 00: returnMe = HIT;
@@ -184,11 +185,12 @@ void putSnoopResult(uint32_t address, int message){
 }	
 
 char getState(uint16_t index, uint16_t tag){
-  for(int i; i < ASSOCIATIVITY; i++){
+  for(int i = 0; i < ASSOCIATIVITY; i++){
     if(LLC.cache[index].myWay[i].tag == tag){
-	    return LLC.cache[index].myWay[way].state;
+	    return LLC.cache[index].myWay[i].state;
     }
   }
+  return INVALID; 
 }
 
 void updateState(uint16_t index, int way, uint8_t command, int result, uint16_t tag){
@@ -283,4 +285,12 @@ int victimPLRU(uint8_t plru[]){
 	index = ((index + 1)*2+(~plru[index]))-1; 
 	}
 	return way;
+}
+
+void cacheInit(void){
+  for (int i = 0; i < SETS; i++){
+    for (int j = 0; j < ASSOCIATIVITY; j++){
+      LLC.cache[i].myWay[j].state = INVALID;
+    }
+  }
 }
