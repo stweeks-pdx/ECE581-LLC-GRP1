@@ -2,15 +2,25 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "defines.h"
 #include "trace.h"
 
 Trace ParseTrace(char* buffer) {
 	char tempAddress[ADDRWIDTH];
-
+#ifdef DEBUG
+	char comment[FILEBUFFS];
+#endif
 	Trace event = {};
 
-	// Parse command and address
+	// Parse command and address or comment
         event.n = buffer[0] - '0';
+	if(event.n == 7) { //Internal NOP command for comments
+#ifdef DEBUG
+		strncpy(comment, &buffer[2], FILEBUFFS);
+		printf("%s", comment);
+#endif
+		return event;
+	} // else read address
 	strncpy(tempAddress, &buffer[2], ADDRWIDTH);
 	event.address = strtoul(tempAddress, NULL, 16);	
 	
@@ -25,4 +35,3 @@ Trace ParseTrace(char* buffer) {
 
 	return event;
 }
-

@@ -8,8 +8,6 @@
 #include "trace.h"
 #include "cache.h"
 
-#define FILEBUFFS 60
-
 uint8_t normalMode = 1;
 
 int main(int argc, char *argv[]) {

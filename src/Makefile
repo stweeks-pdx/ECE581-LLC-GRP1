@@ -10,13 +10,16 @@ CC=gcc
 CFLAGS=-I$(IDIR) -std=c99 -Wall
 ODIR=obj
 EXE=bin
-
+TGDIR=../testing/GenFiles/
 
 _DEPS = defines.h trace.h cache.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ = main.o trace.o cache.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+_TEST = TestGen.o
+TEST = $(patsubst %,$(TGDIR)/%,$(_TEST))
 
 $(EXE):
 	mkdir -p $@
@@ -26,6 +29,9 @@ $(ODIR)/%.o: %.c $(DEPS) | $(EXE)
 
 build: $(OBJ) | $(EXE)
 	$(CC) -o $(EXE)/llc $^ $(CFLAGS)
+
+testgen: $(TEST)
+	$(CC) -o $(TGDIR)/TestGen $(TEST) $(CFLAGS) 
 
 .PHONY: clean all
 
