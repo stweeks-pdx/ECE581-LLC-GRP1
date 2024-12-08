@@ -40,57 +40,53 @@ void cache(Trace request){
 			}
 			break;
 		case SNOOPEDREAD:
-      if(checkForPresence(request.tag, request.index) == HIT){
-        if(getState(request.index, request.tag) == MODIFIED){
-          putSnoopResult(request.address, HITM);
-        }
-        else {
-          putSnoopResult(request.address, HIT);
-        }
-      }
-      else {
-        putSnoopResult(request.address, NOHIT);
-      }
-      updateState(request.index, way, request.n, getSnoopResult(request.address), request.tag,request.address);
-      break;
-    case SNOOPEDWRITE:
-      break;
-    case SNOOPEDRWIM:
-      if(checkForPresence(request.tag, request.index) == HIT){
-        if(getState(request.index, request.tag) == MODIFIED){
-          putSnoopResult(request.address, HITM);
-        }
-        else {
-          putSnoopResult(request.address, HIT);
-        }
-      }
-      else {
-        putSnoopResult(request.address, NOHIT);
-      }
-      updateState(request.index, way, request.n, getSnoopResult(request.address), request.tag, request.address);
-      break;
-    case SNOOPEDINVAL: 
-      if(checkForPresence(request.tag, request.index == HIT)){
-        if(getState(request.index, request.tag) == MODIFIED){
-          putSnoopResult(request.address, HITM);
-        }
-        else{
-          putSnoopResult(request.address, HIT);
-        }
-      }
-      else{
-        putSnoopResult(request.address, NOHIT);
-      }
-      updateState(request.index, way, request.n, getSnoopResult(request.address), request.tag, request.address);
-      break;
-    case CLEARCACHE:
-      resetCache();
-      break;
-    case PRINTCACHE:
-      printCache();
-      break;
-  }
-return;
+	 	        if(checkForPresence(request.tag, request.index) == HIT){
+        			if(getState(request.index, request.tag) == MODIFIED){
+          				putSnoopResult(request.address, HITM);
+        			}
+        			else {
+          				putSnoopResult(request.address, HIT);
+        			}
+      			}
+      			else {
+        			putSnoopResult(request.address, NOHIT);
+      			}
+      			updateState(request.index, way, request.n, getSnoopResult(request.address), request.tag,request.address);
+      			break;
+    		case SNOOPEDWRITE:
+      			break;
+    		case SNOOPEDRWIM:
+      			if(checkForPresence(request.tag, request.index) == HIT){
+        			if(getState(request.index, request.tag) == MODIFIED){
+          				putSnoopResult(request.address, HITM);
+	  				messageToL1(EVICTLINE, request.address);
+        			}
+        			else {
+          				putSnoopResult(request.address, HIT);
+          				messageToL1(INVALIDATELINE, request.address);
+				}
+      			}
+      			else {
+        			putSnoopResult(request.address, NOHIT);
+      			}
+      			updateState(request.index, way, request.n, getSnoopResult(request.address), request.tag, request.address);
+      			break;
+    		case SNOOPEDINVAL: 
+      			if(checkForPresence(request.tag, request.index == HIT)){
+        			if(getState(request.index, request.tag) == SHARED){
+	  				messageToL1(INVALIDATELINE, request.address);
+        			}
+      			}
+      			updateState(request.index, way, request.n, getSnoopResult(request.address), request.tag, request.address);
+      			break;
+    		case CLEARCACHE:
+      			resetCache();
+      			break;
+    		case PRINTCACHE:
+      			printCache();
+      			break;
+ 		}
+	return;
 }
 
 int findWay(uint16_t index, uint16_t tag){

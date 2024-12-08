@@ -2,4 +2,4 @@
 src/obj/*
 src/bin/*
 testing/GenFiles/*.o
-testing/GenFiles/*.ao
+testing/GenFiles/TestGen
