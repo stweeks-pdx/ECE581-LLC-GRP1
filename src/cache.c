@@ -113,17 +113,25 @@ int checkForPresence(uint16_t tag, uint16_t index){
 void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 	int victim = 0;
 	int emptyWay = setNotFull(index);
+	uint32_t victimAddress = 0;
 	if(emptyWay == -1){
 		victim = victimPLRU(LLC.cache[index].plru);
+		victimAddress |= (LLC.cache[index].myWay[victim].tag << (INDEXWIDTH + BYTESELECTWIDTH)) | 
+					(index << BYTESELECTWIDTH);
 #ifdef DEBUG
 		printf("Selected victim: %d \n", victim);
 #endif
   		LLC.cache[index].myWay[victim].tag = tag;
+		LLC.cache[index].myWay[victim].state = INVALID;
+
  			updatePLRU(LLC.cache[index].plru, victim);
-			if(getState(index, tag) == MODIFIED)
-				messageToL1(EVICTLINE, address);
+			if(getState(index, tag) == MODIFIED) {
+				victimAddress |= 0x3;
+				messageToL1(EVICTLINE, victimAddress);
+				busOperation(WRITE, victimAddress);
+			}
 			else
-				messageToL1(INVALIDATELINE, address);
+				messageToL1(INVALIDATELINE, victimAddress);
   		updateState(index, victim, command, getSnoopResult(address), tag, address);
 	}
   else{
@@ -141,7 +149,7 @@ void busOperation(int command,uint32_t address){
 	}
 
 int getSnoopResult(uint32_t address){
-	int returnMe = 0;
+	int returnMe = NOHIT;
 	switch (address & MASK2LSB){
 		case 10: 
 		case 11: returnMe = NOHIT;
@@ -169,6 +177,7 @@ char getState(uint16_t index, uint16_t tag){
   return INVALID; 
 }
 
+// TODO: change getnSnoopResult call inside the function to optimize
 void updateState(uint16_t index, int way, uint8_t command, int result, uint16_t tag, uint32_t address){
 	switch(getState(index,tag)){
 		case INVALID:if((command == L1DATAREAD || command == L1INSTREAD) && (result == HIT || result == HITM)){

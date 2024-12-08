@@ -47,9 +47,9 @@ int main(int argc, char *argv[]) {
     cacheInit();
     while(fgets(buffer, FILEBUFFS, fptr) != NULL) {
 	// Do processing for event
-	if(normalMode) {
+#ifdef DEBUG
 	    printf("file read: %s", buffer);
-	}
+#endif	
 	Trace event = ParseTrace(&buffer[0]);
 	cache(event);
 	// Process the buffer
