@@ -19,7 +19,10 @@ void cache(Trace request){
 	switch(request.n){
 		case L1DATAREAD:
 		case L1INSTREAD: reads++;
-			if(checkForPresence(request.tag, request.index) == HIT) hits++; 
+			if(checkForPresence(request.tag, request.index) == HIT){
+ 				hits++; 
+				messageToL1(SENDLINE, request.address);
+			}	
 			else{
 				misses++;
 				store(request.tag, request.index, request.n, request.address);
@@ -136,11 +139,12 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 				messageToL1(INVALIDATELINE, victimAddress);
   		updateState(index, victim, command, getSnoopResult(address), tag, address);
 	}
-  else{
+  	else{
 		  LLC.cache[index].myWay[emptyWay].tag = tag;
 		  updateState(index, emptyWay, command, getSnoopResult(address), tag, address);	
 		  updatePLRU(LLC.cache[index].plru, emptyWay);
-  }
+  	}
+	messageToL1(SENDLINE, address);
 }
 
 
