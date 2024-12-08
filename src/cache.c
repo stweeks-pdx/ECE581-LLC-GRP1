@@ -113,17 +113,20 @@ int checkForPresence(uint16_t tag, uint16_t index){
 void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 	int victim = 0;
 	int emptyWay = setNotFull(index);
+	uint32_t victimAddress = 0;
 	if(emptyWay == -1){
 		victim = victimPLRU(LLC.cache[index].plru);
+		victimAddress |= (LLC.cache[index].myWay[victim].tag << (INDEXWIDTH + BYTESELECTWIDTH)) | 
+					(index << BYTESELECTWIDTH);
 #ifdef DEBUG
 		printf("Selected victim: %d \n", victim);
 #endif
   		LLC.cache[index].myWay[victim].tag = tag;
  			updatePLRU(LLC.cache[index].plru, victim);
 			if(getState(index, tag) == MODIFIED)
-				messageToL1(EVICTLINE, address);
+				messageToL1(EVICTLINE, victimAddress);
 			else
-				messageToL1(INVALIDATELINE, address);
+				messageToL1(INVALIDATELINE, victimAddress);
   		updateState(index, victim, command, getSnoopResult(address), tag, address);
 	}
   else{
