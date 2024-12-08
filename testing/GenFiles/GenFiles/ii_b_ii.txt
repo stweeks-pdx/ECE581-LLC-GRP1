@@ -1,0 +1,18 @@
+7 // Fill set 0 with SHARED
+0 0 0 0 15 0
+9 0 0 0 0 0
+7 // Fill set 1 with EXCLUSIVE
+2 1 1 0 15 3
+9 0 0 0 0 0
+7 // Read from filled set 0 
+2 0 0 0 15 3
+9 0 0 0 0 0
+7 // Read from filled set 1
+0 1 1 0 15 0
+9 0 0 0 0 0
+7 // Write to filled SHARED set 0
+1 0 0 0 15 0
+9 0 0 0 0 0
+7 // Write to filled EXCLUSIVE set 1
+1 1 1 0 15 3
+9 0 0 0 0 0

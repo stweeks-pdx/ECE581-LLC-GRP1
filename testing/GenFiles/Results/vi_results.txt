@@ -1,0 +1,305 @@
+BusOp: READ, Address: 00000040, Snoop Result HIT 
+L2: SENDLINE 00000040 
+BusOp: READ, Address: 00100040, Snoop Result HIT 
+L2: SENDLINE 00100040 
+BusOp: READ, Address: 00200040, Snoop Result HIT 
+L2: SENDLINE 00200040 
+BusOp: READ, Address: 00300040, Snoop Result HIT 
+L2: SENDLINE 00300040 
+BusOp: READ, Address: 00400040, Snoop Result HIT 
+L2: SENDLINE 00400040 
+BusOp: READ, Address: 00500040, Snoop Result HIT 
+L2: SENDLINE 00500040 
+BusOp: READ, Address: 00600040, Snoop Result HIT 
+L2: SENDLINE 00600040 
+BusOp: READ, Address: 00700040, Snoop Result HIT 
+L2: SENDLINE 00700040 
+BusOp: READ, Address: 00800040, Snoop Result HIT 
+L2: SENDLINE 00800040 
+BusOp: READ, Address: 00900040, Snoop Result HIT 
+L2: SENDLINE 00900040 
+BusOp: READ, Address: 00A00040, Snoop Result HIT 
+L2: SENDLINE 00A00040 
+BusOp: READ, Address: 00B00040, Snoop Result HIT 
+L2: SENDLINE 00B00040 
+BusOp: READ, Address: 00C00040, Snoop Result HIT 
+L2: SENDLINE 00C00040 
+BusOp: READ, Address: 00D00040, Snoop Result HIT 
+L2: SENDLINE 00D00040 
+BusOp: READ, Address: 00E00040, Snoop Result HIT 
+L2: SENDLINE 00E00040 
+BusOp: READ, Address: 00F00040, Snoop Result HIT 
+L2: SENDLINE 00F00040 
+BusOp: READ, Address: 00000083, Snoop Result NOHIT 
+L2: SENDLINE 00000083 
+BusOp: READ, Address: 00100083, Snoop Result NOHIT 
+L2: SENDLINE 00100083 
+BusOp: READ, Address: 00200083, Snoop Result NOHIT 
+L2: SENDLINE 00200083 
+BusOp: READ, Address: 00300083, Snoop Result NOHIT 
+L2: SENDLINE 00300083 
+BusOp: READ, Address: 00400083, Snoop Result NOHIT 
+L2: SENDLINE 00400083 
+BusOp: READ, Address: 00500083, Snoop Result NOHIT 
+L2: SENDLINE 00500083 
+BusOp: READ, Address: 00600083, Snoop Result NOHIT 
+L2: SENDLINE 00600083 
+BusOp: READ, Address: 00700083, Snoop Result NOHIT 
+L2: SENDLINE 00700083 
+BusOp: READ, Address: 00800083, Snoop Result NOHIT 
+L2: SENDLINE 00800083 
+BusOp: READ, Address: 00900083, Snoop Result NOHIT 
+L2: SENDLINE 00900083 
+BusOp: READ, Address: 00A00083, Snoop Result NOHIT 
+L2: SENDLINE 00A00083 
+BusOp: READ, Address: 00B00083, Snoop Result NOHIT 
+L2: SENDLINE 00B00083 
+BusOp: READ, Address: 00C00083, Snoop Result NOHIT 
+L2: SENDLINE 00C00083 
+BusOp: READ, Address: 00D00083, Snoop Result NOHIT 
+L2: SENDLINE 00D00083 
+BusOp: READ, Address: 00E00083, Snoop Result NOHIT 
+L2: SENDLINE 00E00083 
+BusOp: READ, Address: 00F00083, Snoop Result NOHIT 
+L2: SENDLINE 00F00083 
+BusOp: RWIM, Address: 000000C0, Snoop Result HIT 
+L2: SENDLINE 000000C0 
+L2: GETLINE 000000C0 
+BusOp: RWIM, Address: 001000C0, Snoop Result HIT 
+L2: SENDLINE 001000C0 
+L2: GETLINE 001000C0 
+BusOp: RWIM, Address: 002000C0, Snoop Result HIT 
+L2: SENDLINE 002000C0 
+L2: GETLINE 002000C0 
+BusOp: RWIM, Address: 003000C0, Snoop Result HIT 
+L2: SENDLINE 003000C0 
+L2: GETLINE 003000C0 
+BusOp: RWIM, Address: 004000C0, Snoop Result HIT 
+L2: SENDLINE 004000C0 
+L2: GETLINE 004000C0 
+BusOp: RWIM, Address: 005000C0, Snoop Result HIT 
+L2: SENDLINE 005000C0 
+L2: GETLINE 005000C0 
+BusOp: RWIM, Address: 006000C0, Snoop Result HIT 
+L2: SENDLINE 006000C0 
+L2: GETLINE 006000C0 
+BusOp: RWIM, Address: 007000C0, Snoop Result HIT 
+L2: SENDLINE 007000C0 
+L2: GETLINE 007000C0 
+BusOp: RWIM, Address: 008000C0, Snoop Result HIT 
+L2: SENDLINE 008000C0 
+L2: GETLINE 008000C0 
+BusOp: RWIM, Address: 009000C0, Snoop Result HIT 
+L2: SENDLINE 009000C0 
+L2: GETLINE 009000C0 
+BusOp: RWIM, Address: 00A000C0, Snoop Result HIT 
+L2: SENDLINE 00A000C0 
+L2: GETLINE 00A000C0 
+BusOp: RWIM, Address: 00B000C0, Snoop Result HIT 
+L2: SENDLINE 00B000C0 
+L2: GETLINE 00B000C0 
+BusOp: RWIM, Address: 00C000C0, Snoop Result HIT 
+L2: SENDLINE 00C000C0 
+L2: GETLINE 00C000C0 
+BusOp: RWIM, Address: 00D000C0, Snoop Result HIT 
+L2: SENDLINE 00D000C0 
+L2: GETLINE 00D000C0 
+BusOp: RWIM, Address: 00E000C0, Snoop Result HIT 
+L2: SENDLINE 00E000C0 
+L2: GETLINE 00E000C0 
+BusOp: RWIM, Address: 00F000C0, Snoop Result HIT 
+L2: SENDLINE 00F000C0 
+L2: GETLINE 00F000C0 
+
+PRINTING CACHE
+++++++++++++++++
+Tag = 000, Set = 0001, State = S, Way = 00 
+Tag = 001, Set = 0001, State = S, Way = 01 
+Tag = 002, Set = 0001, State = S, Way = 02 
+Tag = 003, Set = 0001, State = S, Way = 03 
+Tag = 004, Set = 0001, State = S, Way = 04 
+Tag = 005, Set = 0001, State = S, Way = 05 
+Tag = 006, Set = 0001, State = S, Way = 06 
+Tag = 007, Set = 0001, State = S, Way = 07 
+Tag = 008, Set = 0001, State = S, Way = 08 
+Tag = 009, Set = 0001, State = S, Way = 09 
+Tag = 00A, Set = 0001, State = S, Way = 10 
+Tag = 00B, Set = 0001, State = S, Way = 11 
+Tag = 00C, Set = 0001, State = S, Way = 12 
+Tag = 00D, Set = 0001, State = S, Way = 13 
+Tag = 00E, Set = 0001, State = S, Way = 14 
+Tag = 00F, Set = 0001, State = S, Way = 15 
+PLRU for set 1: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+Tag = 000, Set = 0002, State = E, Way = 00 
+Tag = 001, Set = 0002, State = E, Way = 01 
+Tag = 002, Set = 0002, State = E, Way = 02 
+Tag = 003, Set = 0002, State = E, Way = 03 
+Tag = 004, Set = 0002, State = E, Way = 04 
+Tag = 005, Set = 0002, State = E, Way = 05 
+Tag = 006, Set = 0002, State = E, Way = 06 
+Tag = 007, Set = 0002, State = E, Way = 07 
+Tag = 008, Set = 0002, State = E, Way = 08 
+Tag = 009, Set = 0002, State = E, Way = 09 
+Tag = 00A, Set = 0002, State = E, Way = 10 
+Tag = 00B, Set = 0002, State = E, Way = 11 
+Tag = 00C, Set = 0002, State = E, Way = 12 
+Tag = 00D, Set = 0002, State = E, Way = 13 
+Tag = 00E, Set = 0002, State = E, Way = 14 
+Tag = 00F, Set = 0002, State = E, Way = 15 
+PLRU for set 2: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+Tag = 000, Set = 0003, State = M, Way = 00 
+Tag = 001, Set = 0003, State = M, Way = 01 
+Tag = 002, Set = 0003, State = M, Way = 02 
+Tag = 003, Set = 0003, State = M, Way = 03 
+Tag = 004, Set = 0003, State = M, Way = 04 
+Tag = 005, Set = 0003, State = M, Way = 05 
+Tag = 006, Set = 0003, State = M, Way = 06 
+Tag = 007, Set = 0003, State = M, Way = 07 
+Tag = 008, Set = 0003, State = M, Way = 08 
+Tag = 009, Set = 0003, State = M, Way = 09 
+Tag = 00A, Set = 0003, State = M, Way = 10 
+Tag = 00B, Set = 0003, State = M, Way = 11 
+Tag = 00C, Set = 0003, State = M, Way = 12 
+Tag = 00D, Set = 0003, State = M, Way = 13 
+Tag = 00E, Set = 0003, State = M, Way = 14 
+Tag = 00F, Set = 0003, State = M, Way = 15 
+PLRU for set 3: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+================
+
+int: NOHIT, Address: 00000000 
+int: NOHIT, Address: 00100000 
+int: NOHIT, Address: 00200000 
+int: NOHIT, Address: 00300000 
+int: NOHIT, Address: 00400000 
+int: NOHIT, Address: 00500000 
+int: NOHIT, Address: 00600000 
+int: NOHIT, Address: 00700000 
+int: NOHIT, Address: 00800000 
+int: NOHIT, Address: 00900000 
+int: NOHIT, Address: 00A00000 
+int: NOHIT, Address: 00B00000 
+int: NOHIT, Address: 00C00000 
+int: NOHIT, Address: 00D00000 
+int: NOHIT, Address: 00E00000 
+int: NOHIT, Address: 00F00000 
+int: HIT, Address: 00000040 
+L2: INVALIDATLINE 00000040 
+int: HIT, Address: 00100040 
+L2: INVALIDATLINE 00100040 
+int: HIT, Address: 00200040 
+L2: INVALIDATLINE 00200040 
+int: HIT, Address: 00300040 
+L2: INVALIDATLINE 00300040 
+int: HIT, Address: 00400040 
+L2: INVALIDATLINE 00400040 
+int: HIT, Address: 00500040 
+L2: INVALIDATLINE 00500040 
+int: HIT, Address: 00600040 
+L2: INVALIDATLINE 00600040 
+int: HIT, Address: 00700040 
+L2: INVALIDATLINE 00700040 
+int: HIT, Address: 00800040 
+L2: INVALIDATLINE 00800040 
+int: HIT, Address: 00900040 
+L2: INVALIDATLINE 00900040 
+int: HIT, Address: 00A00040 
+L2: INVALIDATLINE 00A00040 
+int: HIT, Address: 00B00040 
+L2: INVALIDATLINE 00B00040 
+int: HIT, Address: 00C00040 
+L2: INVALIDATLINE 00C00040 
+int: HIT, Address: 00D00040 
+L2: INVALIDATLINE 00D00040 
+int: HIT, Address: 00E00040 
+L2: INVALIDATLINE 00E00040 
+int: HIT, Address: 00F00040 
+L2: INVALIDATLINE 00F00040 
+int: HIT, Address: 00000080 
+L2: INVALIDATLINE 00000080 
+int: HIT, Address: 00100080 
+L2: INVALIDATLINE 00100080 
+int: HIT, Address: 00200080 
+L2: INVALIDATLINE 00200080 
+int: HIT, Address: 00300080 
+L2: INVALIDATLINE 00300080 
+int: HIT, Address: 00400080 
+L2: INVALIDATLINE 00400080 
+int: HIT, Address: 00500080 
+L2: INVALIDATLINE 00500080 
+int: HIT, Address: 00600080 
+L2: INVALIDATLINE 00600080 
+int: HIT, Address: 00700080 
+L2: INVALIDATLINE 00700080 
+int: HIT, Address: 00800080 
+L2: INVALIDATLINE 00800080 
+int: HIT, Address: 00900080 
+L2: INVALIDATLINE 00900080 
+int: HIT, Address: 00A00080 
+L2: INVALIDATLINE 00A00080 
+int: HIT, Address: 00B00080 
+L2: INVALIDATLINE 00B00080 
+int: HIT, Address: 00C00080 
+L2: INVALIDATLINE 00C00080 
+int: HIT, Address: 00D00080 
+L2: INVALIDATLINE 00D00080 
+int: HIT, Address: 00E00080 
+L2: INVALIDATLINE 00E00080 
+int: HIT, Address: 00F00080 
+L2: INVALIDATLINE 00F00080 
+int: HITM, Address: 000000C0 
+L2: EVICTLINE 000000C0 
+BusOp: WRITE, Address: 000000C0, Snoop Result HIT 
+int: HITM, Address: 001000C0 
+L2: EVICTLINE 001000C0 
+BusOp: WRITE, Address: 001000C0, Snoop Result HIT 
+int: HITM, Address: 002000C0 
+L2: EVICTLINE 002000C0 
+BusOp: WRITE, Address: 002000C0, Snoop Result HIT 
+int: HITM, Address: 003000C0 
+L2: EVICTLINE 003000C0 
+BusOp: WRITE, Address: 003000C0, Snoop Result HIT 
+int: HITM, Address: 004000C0 
+L2: EVICTLINE 004000C0 
+BusOp: WRITE, Address: 004000C0, Snoop Result HIT 
+int: HITM, Address: 005000C0 
+L2: EVICTLINE 005000C0 
+BusOp: WRITE, Address: 005000C0, Snoop Result HIT 
+int: HITM, Address: 006000C0 
+L2: EVICTLINE 006000C0 
+BusOp: WRITE, Address: 006000C0, Snoop Result HIT 
+int: HITM, Address: 007000C0 
+L2: EVICTLINE 007000C0 
+BusOp: WRITE, Address: 007000C0, Snoop Result HIT 
+int: HITM, Address: 008000C0 
+L2: EVICTLINE 008000C0 
+BusOp: WRITE, Address: 008000C0, Snoop Result HIT 
+int: HITM, Address: 009000C0 
+L2: EVICTLINE 009000C0 
+BusOp: WRITE, Address: 009000C0, Snoop Result HIT 
+int: HITM, Address: 00A000C0 
+L2: EVICTLINE 00A000C0 
+BusOp: WRITE, Address: 00A000C0, Snoop Result HIT 
+int: HITM, Address: 00B000C0 
+L2: EVICTLINE 00B000C0 
+BusOp: WRITE, Address: 00B000C0, Snoop Result HIT 
+int: HITM, Address: 00C000C0 
+L2: EVICTLINE 00C000C0 
+BusOp: WRITE, Address: 00C000C0, Snoop Result HIT 
+int: HITM, Address: 00D000C0 
+L2: EVICTLINE 00D000C0 
+BusOp: WRITE, Address: 00D000C0, Snoop Result HIT 
+int: HITM, Address: 00E000C0 
+L2: EVICTLINE 00E000C0 
+BusOp: WRITE, Address: 00E000C0, Snoop Result HIT 
+int: HITM, Address: 00F000C0 
+L2: EVICTLINE 00F000C0 
+BusOp: WRITE, Address: 00F000C0, Snoop Result HIT 
+
+PRINTING CACHE
+++++++++++++++++
+================
+
+Hits: 0, Misses: 48, Reads: 32, Writes: 16, Hit ratio: 0.000000 
