@@ -11,7 +11,7 @@ static uint32_t writes;
 
 static char busOpLUT[4][11] = {"READ", "WRITE", "INVALIDATE", "RWIM"};
 static char snoopLUT[4][6] = {"MISS", "HIT", "HITM", "NOHIT"};
-static char l1LUT[4][15] = {"GETLINE", "SENDLINE", "INVALIDATLINE", "EVICTLINE"};
+static char l1LUT[4][15] = {"GETLINE", "SENDLINE", "INVALIDATELINE", "EVICTLINE"};
 
 
 void cache(Trace request){ 
