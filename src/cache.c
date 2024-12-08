@@ -123,8 +123,11 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 #endif
   		LLC.cache[index].myWay[victim].tag = tag;
  			updatePLRU(LLC.cache[index].plru, victim);
-			if(getState(index, tag) == MODIFIED)
+			if(getState(index, tag) == MODIFIED) {
+				victimAddress |= 0x3;
 				messageToL1(EVICTLINE, victimAddress);
+				busOperation(WRITE, victimAddress);
+			}
 			else
 				messageToL1(INVALIDATELINE, victimAddress);
   		updateState(index, victim, command, getSnoopResult(address), tag, address);
@@ -144,7 +147,7 @@ void busOperation(int command,uint32_t address){
 	}
 
 int getSnoopResult(uint32_t address){
-	int returnMe = 0;
+	int returnMe = NOHIT;
 	switch (address & MASK2LSB){
 		case 10: 
 		case 11: returnMe = NOHIT;
