@@ -11,7 +11,7 @@ static uint32_t writes;
 
 static char busOpLUT[4][11] = {"READ", "WRITE", "INVALIDATE", "RWIM"};
 static char snoopLUT[4][6] = {"MISS", "HIT", "HITM", "NOHIT"};
-static char l1LUT[4][15] = {"GETLINE", "SENDLINE", "INVALIDATLINE", "EVICTLINE"};
+static char l1LUT[4][15] = {"GETLINE", "SENDLINE", "INVALIDATELINE", "EVICTLINE"};
 
 
 void cache(Trace request){ 
@@ -38,59 +38,57 @@ void cache(Trace request){
 				misses++;
 				store(request.tag, request.index, request.n, request.address);
 			}
+			messageToL1(GETLINE, request.address);
 			break;
 		case SNOOPEDREAD:
-      if(checkForPresence(request.tag, request.index) == HIT){
-        if(getState(request.index, request.tag) == MODIFIED){
-          putSnoopResult(request.address, HITM);
-        }
-        else {
-          putSnoopResult(request.address, HIT);
-        }
-      }
-      else {
-        putSnoopResult(request.address, NOHIT);
-      }
-      updateState(request.index, way, request.n, getSnoopResult(request.address), request.tag,request.address);
-      break;
-    case SNOOPEDWRITE:
-      break;
-    case SNOOPEDRWIM:
-      if(checkForPresence(request.tag, request.index) == HIT){
-        if(getState(request.index, request.tag) == MODIFIED){
-          putSnoopResult(request.address, HITM);
-        }
-        else {
-          putSnoopResult(request.address, HIT);
-        }
-      }
-      else {
-        putSnoopResult(request.address, NOHIT);
-      }
-      updateState(request.index, way, request.n, getSnoopResult(request.address), request.tag, request.address);
-      break;
-    case SNOOPEDINVAL: 
-      if(checkForPresence(request.tag, request.index == HIT)){
-        if(getState(request.index, request.tag) == MODIFIED){
-          putSnoopResult(request.address, HITM);
-        }
-        else{
-          putSnoopResult(request.address, HIT);
-        }
-      }
-      else{
-        putSnoopResult(request.address, NOHIT);
-      }
-      updateState(request.index, way, request.n, getSnoopResult(request.address), request.tag, request.address);
-      break;
-    case CLEARCACHE:
-      resetCache();
-      break;
-    case PRINTCACHE:
-      printCache();
-      break;
-  }
-return;
+	 	        if(checkForPresence(request.tag, request.index) == HIT){
+        			if(getState(request.index, request.tag) == MODIFIED){
+          				messageToL1(GETLINE, request.address);
+					putSnoopResult(request.address, HITM);
+        			}
+        			else {
+          				putSnoopResult(request.address, HIT);
+        			}
+      			}
+      			else {
+        			putSnoopResult(request.address, NOHIT);
+      			}
+      			updateState(request.index, way, request.n, getSnoopResult(request.address), request.tag,request.address);
+      			break;
+    		case SNOOPEDWRITE:
+      			break;
+    		case SNOOPEDRWIM:
+      			if(checkForPresence(request.tag, request.index) == HIT){
+        			if(getState(request.index, request.tag) == MODIFIED){
+          				putSnoopResult(request.address, HITM);
+	  				messageToL1(EVICTLINE, request.address);
+        			}
+        			else {
+          				putSnoopResult(request.address, HIT);
+          				messageToL1(INVALIDATELINE, request.address);
+				}
+      			}
+      			else {
+        			putSnoopResult(request.address, NOHIT);
+      			}
+      			updateState(request.index, way, request.n, getSnoopResult(request.address), request.tag, request.address);
+      			break;
+    		case SNOOPEDINVAL: 
+      			if(checkForPresence(request.tag, request.index == HIT)){
+        			if(getState(request.index, request.tag) == SHARED){
+	  				messageToL1(INVALIDATELINE, request.address);
+        			}
+      			}
+      			updateState(request.index, way, request.n, getSnoopResult(request.address), request.tag, request.address);
+      			break;
+    		case CLEARCACHE:
+      			resetCache();
+      			break;
+    		case PRINTCACHE:
+      			printCache();
+      			break;
+ 		}
+	return;
 }
 
 int findWay(uint16_t index, uint16_t tag){
@@ -127,16 +125,17 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 		printf("Selected victim: %02d \n", victim);
 #endif
   		LLC.cache[index].myWay[victim].tag = tag;
-		LLC.cache[index].myWay[victim].state = INVALID;
 
- 			updatePLRU(LLC.cache[index].plru, victim);
-			if(getState(index, tag) == MODIFIED) {
-				victimAddress |= 0x3;
-				messageToL1(EVICTLINE, victimAddress);
-				busOperation(WRITE, victimAddress);
-			}
-			else
-				messageToL1(INVALIDATELINE, victimAddress);
+ 		updatePLRU(LLC.cache[index].plru, victim);
+		if(getState(index, tag) == MODIFIED) {
+			victimAddress |= 0x3;
+			messageToL1(EVICTLINE, victimAddress);
+			busOperation(WRITE, victimAddress);
+		}
+		else
+			messageToL1(INVALIDATELINE, victimAddress);
+		
+		LLC.cache[index].myWay[victim].state = INVALID;
   		updateState(index, victim, command, getSnoopResult(address), tag, address);
 	}
   	else{
@@ -151,7 +150,7 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 void busOperation(int command,uint32_t address){
 	int result = getSnoopResult(address);
 	if(normalMode)
-		printf("BusOp: %s, Address: %08X, Snoop Result %s \n", busOpLUT[command], address, snoopLUT[result]);
+		printf("BusOp: %s, Address: %08X, Snoop Result %s \n", busOpLUT[command], (address&(((TAGMASK << INDEXWIDTH)|INDEXMASK) << BYTESELECTWIDTH)) , snoopLUT[result]);
 	}
 
 int getSnoopResult(uint32_t address){
