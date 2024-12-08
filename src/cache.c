@@ -124,7 +124,7 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 		victimAddress |= (LLC.cache[index].myWay[victim].tag << (INDEXWIDTH + BYTESELECTWIDTH)) | 
 					(index << BYTESELECTWIDTH);
 #ifdef DEBUG
-		printf("Selected victim: %d \n", victim);
+		printf("Selected victim: %02d \n", victim);
 #endif
   		LLC.cache[index].myWay[victim].tag = tag;
 		LLC.cache[index].myWay[victim].state = INVALID;
@@ -151,7 +151,7 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 void busOperation(int command,uint32_t address){
 	int result = getSnoopResult(address);
 	if(normalMode)
-		printf("BusOp: %s, Address: %X, Snoop Result %s \n", busOpLUT[command], address, snoopLUT[result]);
+		printf("BusOp: %s, Address: %08X, Snoop Result %s \n", busOpLUT[command], address, snoopLUT[result]);
 	}
 
 int getSnoopResult(uint32_t address){
@@ -171,7 +171,7 @@ int getSnoopResult(uint32_t address){
 /*putSnoopResult:Simulate our snooping of other caches*/
 void putSnoopResult(uint32_t address, int message){
 	if(normalMode)
-		printf("int: %s, Address: %X \n",snoopLUT[message], address); 
+		printf("int: %s, Address: %08X \n",snoopLUT[message], address); 
 }	
 
 char getState(uint16_t index, uint16_t tag){
@@ -243,7 +243,7 @@ int setNotFull(uint16_t index){
 
 void messageToL1(int message, uint32_t address){
 	if (normalMode)
-		printf("L2: %s %X \n", l1LUT[message], address);
+		printf("L2: %s %08X \n", l1LUT[message], address);
 }
 
 void displayTraceResult(){
@@ -253,10 +253,11 @@ void displayTraceResult(){
 
 void printCache(void){
 	bool printPLRU = false;
+	printf("\nPRINTING CACHE\n++++++++++++++++\n");
 	for (int i=0; i<SETS; i++) {
 		for (int j=0; j<ASSOCIATIVITY; j++) {
 			if(LLC.cache[i].myWay[j].state != INVALID){ 
-				printf("Tag = %X, Set = %X, State = %c, Way = %d \n", LLC.cache[i].myWay[j].tag, i, LLC.cache[i].myWay[j].state, j); 
+				printf("Tag = %03X, Set = %04X, State = %c, Way = %02d \n", LLC.cache[i].myWay[j].tag, i, LLC.cache[i].myWay[j].state, j); 
 				printPLRU = true;
 			}
 		}
@@ -269,6 +270,7 @@ void printCache(void){
 			printPLRU = false;
 		}
 	}
+	printf("================\n\n");
 }
 
 void resetCache(void){

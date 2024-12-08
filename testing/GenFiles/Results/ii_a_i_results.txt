@@ -1,0 +1,157 @@
+BusOp: READ, Address: 0, Snoop Result HIT 
+BusOp: READ, Address: 100000, Snoop Result HIT 
+BusOp: READ, Address: 200000, Snoop Result HIT 
+BusOp: READ, Address: 300000, Snoop Result HIT 
+BusOp: READ, Address: 400000, Snoop Result HIT 
+BusOp: READ, Address: 500000, Snoop Result HIT 
+BusOp: READ, Address: 600000, Snoop Result HIT 
+BusOp: READ, Address: 700000, Snoop Result HIT 
+BusOp: READ, Address: 800000, Snoop Result HIT 
+BusOp: READ, Address: 900000, Snoop Result HIT 
+BusOp: READ, Address: A00000, Snoop Result HIT 
+BusOp: READ, Address: B00000, Snoop Result HIT 
+BusOp: READ, Address: C00000, Snoop Result HIT 
+BusOp: READ, Address: D00000, Snoop Result HIT 
+BusOp: READ, Address: E00000, Snoop Result HIT 
+BusOp: READ, Address: F00000, Snoop Result HIT 
+Tag = 0, Set = 0, State = S, Way = 0 
+Tag = 1, Set = 0, State = S, Way = 1 
+Tag = 2, Set = 0, State = S, Way = 2 
+Tag = 3, Set = 0, State = S, Way = 3 
+Tag = 4, Set = 0, State = S, Way = 4 
+Tag = 5, Set = 0, State = S, Way = 5 
+Tag = 6, Set = 0, State = S, Way = 6 
+Tag = 7, Set = 0, State = S, Way = 7 
+Tag = 8, Set = 0, State = S, Way = 8 
+Tag = 9, Set = 0, State = S, Way = 9 
+Tag = A, Set = 0, State = S, Way = 10 
+Tag = B, Set = 0, State = S, Way = 11 
+Tag = C, Set = 0, State = S, Way = 12 
+Tag = D, Set = 0, State = S, Way = 13 
+Tag = E, Set = 0, State = S, Way = 14 
+Tag = F, Set = 0, State = S, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+BusOp: READ, Address: 43, Snoop Result NOHIT 
+BusOp: READ, Address: 100043, Snoop Result NOHIT 
+BusOp: READ, Address: 200043, Snoop Result NOHIT 
+BusOp: READ, Address: 300043, Snoop Result NOHIT 
+BusOp: READ, Address: 400043, Snoop Result NOHIT 
+BusOp: READ, Address: 500043, Snoop Result NOHIT 
+BusOp: READ, Address: 600043, Snoop Result NOHIT 
+BusOp: READ, Address: 700043, Snoop Result NOHIT 
+BusOp: READ, Address: 800043, Snoop Result NOHIT 
+BusOp: READ, Address: 900043, Snoop Result NOHIT 
+BusOp: READ, Address: A00043, Snoop Result NOHIT 
+BusOp: READ, Address: B00043, Snoop Result NOHIT 
+BusOp: READ, Address: C00043, Snoop Result NOHIT 
+BusOp: READ, Address: D00043, Snoop Result NOHIT 
+BusOp: READ, Address: E00043, Snoop Result NOHIT 
+BusOp: READ, Address: F00043, Snoop Result NOHIT 
+Tag = 0, Set = 0, State = S, Way = 0 
+Tag = 1, Set = 0, State = S, Way = 1 
+Tag = 2, Set = 0, State = S, Way = 2 
+Tag = 3, Set = 0, State = S, Way = 3 
+Tag = 4, Set = 0, State = S, Way = 4 
+Tag = 5, Set = 0, State = S, Way = 5 
+Tag = 6, Set = 0, State = S, Way = 6 
+Tag = 7, Set = 0, State = S, Way = 7 
+Tag = 8, Set = 0, State = S, Way = 8 
+Tag = 9, Set = 0, State = S, Way = 9 
+Tag = A, Set = 0, State = S, Way = 10 
+Tag = B, Set = 0, State = S, Way = 11 
+Tag = C, Set = 0, State = S, Way = 12 
+Tag = D, Set = 0, State = S, Way = 13 
+Tag = E, Set = 0, State = S, Way = 14 
+Tag = F, Set = 0, State = S, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+Tag = 0, Set = 1, State = E, Way = 0 
+Tag = 1, Set = 1, State = E, Way = 1 
+Tag = 2, Set = 1, State = E, Way = 2 
+Tag = 3, Set = 1, State = E, Way = 3 
+Tag = 4, Set = 1, State = E, Way = 4 
+Tag = 5, Set = 1, State = E, Way = 5 
+Tag = 6, Set = 1, State = E, Way = 6 
+Tag = 7, Set = 1, State = E, Way = 7 
+Tag = 8, Set = 1, State = E, Way = 8 
+Tag = 9, Set = 1, State = E, Way = 9 
+Tag = A, Set = 1, State = E, Way = 10 
+Tag = B, Set = 1, State = E, Way = 11 
+Tag = C, Set = 1, State = E, Way = 12 
+Tag = D, Set = 1, State = E, Way = 13 
+Tag = E, Set = 1, State = E, Way = 14 
+Tag = F, Set = 1, State = E, Way = 15 
+PLRU for set 1: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+BusOp: RWIM, Address: 80, Snoop Result HIT 
+BusOp: RWIM, Address: 100080, Snoop Result HIT 
+BusOp: RWIM, Address: 200080, Snoop Result HIT 
+BusOp: RWIM, Address: 300080, Snoop Result HIT 
+BusOp: RWIM, Address: 400080, Snoop Result HIT 
+BusOp: RWIM, Address: 500080, Snoop Result HIT 
+BusOp: RWIM, Address: 600080, Snoop Result HIT 
+BusOp: RWIM, Address: 700080, Snoop Result HIT 
+BusOp: RWIM, Address: 800080, Snoop Result HIT 
+BusOp: RWIM, Address: 900080, Snoop Result HIT 
+BusOp: RWIM, Address: A00080, Snoop Result HIT 
+BusOp: RWIM, Address: B00080, Snoop Result HIT 
+BusOp: RWIM, Address: C00080, Snoop Result HIT 
+BusOp: RWIM, Address: D00080, Snoop Result HIT 
+BusOp: RWIM, Address: E00080, Snoop Result HIT 
+BusOp: RWIM, Address: F00080, Snoop Result HIT 
+Tag = 0, Set = 0, State = S, Way = 0 
+Tag = 1, Set = 0, State = S, Way = 1 
+Tag = 2, Set = 0, State = S, Way = 2 
+Tag = 3, Set = 0, State = S, Way = 3 
+Tag = 4, Set = 0, State = S, Way = 4 
+Tag = 5, Set = 0, State = S, Way = 5 
+Tag = 6, Set = 0, State = S, Way = 6 
+Tag = 7, Set = 0, State = S, Way = 7 
+Tag = 8, Set = 0, State = S, Way = 8 
+Tag = 9, Set = 0, State = S, Way = 9 
+Tag = A, Set = 0, State = S, Way = 10 
+Tag = B, Set = 0, State = S, Way = 11 
+Tag = C, Set = 0, State = S, Way = 12 
+Tag = D, Set = 0, State = S, Way = 13 
+Tag = E, Set = 0, State = S, Way = 14 
+Tag = F, Set = 0, State = S, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+Tag = 0, Set = 1, State = E, Way = 0 
+Tag = 1, Set = 1, State = E, Way = 1 
+Tag = 2, Set = 1, State = E, Way = 2 
+Tag = 3, Set = 1, State = E, Way = 3 
+Tag = 4, Set = 1, State = E, Way = 4 
+Tag = 5, Set = 1, State = E, Way = 5 
+Tag = 6, Set = 1, State = E, Way = 6 
+Tag = 7, Set = 1, State = E, Way = 7 
+Tag = 8, Set = 1, State = E, Way = 8 
+Tag = 9, Set = 1, State = E, Way = 9 
+Tag = A, Set = 1, State = E, Way = 10 
+Tag = B, Set = 1, State = E, Way = 11 
+Tag = C, Set = 1, State = E, Way = 12 
+Tag = D, Set = 1, State = E, Way = 13 
+Tag = E, Set = 1, State = E, Way = 14 
+Tag = F, Set = 1, State = E, Way = 15 
+PLRU for set 1: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+Tag = 0, Set = 2, State = M, Way = 0 
+Tag = 1, Set = 2, State = M, Way = 1 
+Tag = 2, Set = 2, State = M, Way = 2 
+Tag = 3, Set = 2, State = M, Way = 3 
+Tag = 4, Set = 2, State = M, Way = 4 
+Tag = 5, Set = 2, State = M, Way = 5 
+Tag = 6, Set = 2, State = M, Way = 6 
+Tag = 7, Set = 2, State = M, Way = 7 
+Tag = 8, Set = 2, State = M, Way = 8 
+Tag = 9, Set = 2, State = M, Way = 9 
+Tag = A, Set = 2, State = M, Way = 10 
+Tag = B, Set = 2, State = M, Way = 11 
+Tag = C, Set = 2, State = M, Way = 12 
+Tag = D, Set = 2, State = M, Way = 13 
+Tag = E, Set = 2, State = M, Way = 14 
+Tag = F, Set = 2, State = M, Way = 15 
+PLRU for set 2: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+Hits: 0, Misses: 48, Reads: 32, Writes: 16, Hit ratio: 0.000000 
