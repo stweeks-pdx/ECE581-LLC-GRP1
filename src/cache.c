@@ -150,7 +150,7 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 void busOperation(int command,uint32_t address){
 	int result = getSnoopResult(address);
 	if(normalMode)
-		printf("BusOp: %s, Address: %08X, Snoop Result %s \n", busOpLUT[command], address, snoopLUT[result]);
+		printf("BusOp: %s, Address: %08X, Snoop Result %s \n", busOpLUT[command], (address&(((TAGMASK << INDEXWIDTH)|INDEXMASK) << BYTESELECTWIDTH)) , snoopLUT[result]);
 	}
 
 int getSnoopResult(uint32_t address){
