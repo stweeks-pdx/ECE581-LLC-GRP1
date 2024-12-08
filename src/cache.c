@@ -184,7 +184,7 @@ void updateState(uint16_t index, int way, uint8_t command, int result, uint16_t 
 				     busOperation(READ,address);
 				     LLC.cache[index].myWay[way].state = SHARED;
 			     }
-			     else if((command == L1DATAREAD || command == L1INSTREAD) && (result == MISS)){
+			     else if((command == L1DATAREAD || command == L1INSTREAD) && (result == NOHIT)){
 				     busOperation(READ,address);
 				     LLC.cache[index].myWay[way].state = EXCLUSIVE;
 			     }
