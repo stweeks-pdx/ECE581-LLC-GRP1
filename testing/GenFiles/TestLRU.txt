@@ -1,0 +1,4 @@
+7 // Testing sequential eviction to validate LRU
+0 0 0 16 31 3
+0 0 0 0 15 3
+9 0 0 0 0 3

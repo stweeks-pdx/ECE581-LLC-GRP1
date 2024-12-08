@@ -1,0 +1,50 @@
+Next state 111 1111 1111 1111
+0 victim = 00x 0xxx 0xxx xxxx (0)
+Next state 001 0111 0111 1111
+1 victim = 1x0 xx0x xxxx 0xxx (8)
+Next state 100 0101 0111 0111
+2 victim = 01x x0xx xx0x xxxx (4)
+Next state 010 0001 0101 0111
+3 victim = 1x1 xxx0 xxxx xx0x (C)
+Next state 111 0000 0101 0101
+4 victim = 00x 1xxx x0xx xxxx (2)
+Next state 001 1000 0001 0101
+5 victim = 1x0 xx1x xxxx x0xx (A)
+Next state 100 1010 0001 0001
+6 victim = 01x x1xx xxx0 xxxx (6)
+Next state 010 1110 0000 0001
+7 victim = 1x1 xxx1 xxxx xxx0 (14)
+Next state 111 1111 0000 0000
+8 victim = 00x 0xxx 1xxx xxxx (1)
+Next state 001 0111 1000 0000
+9 victim = 1x0 xx0x xxxx 1xxx (9)
+Next state 100 0101 1000 1000
+A victim = 01x x0xx xx1x xxxx (5)
+Next state 010 0001 1010 1000
+B victim = 1x1 xxx0 xxxx xx1x (13)
+Next state 111 0000 1010 1010
+C victim = 00x 1xxx x1xx xxxx (3)
+Next state 001 1000 1110 1010
+D victim = 1x0 xx1x xxxx x1xx (11)
+Next state 100 1010 1110 1110
+E victim = 01x x1xx xxx1 xxxx (7)
+Next state 010 1110 1111 1110
+F victim = 1x1 xxx1 xxxx xxx1 (15)
+
+Expected Cache Tags:
+0
+8
+4
+C
+2
+A
+6
+E
+1
+9
+5
+D
+3
+B
+7
+F
