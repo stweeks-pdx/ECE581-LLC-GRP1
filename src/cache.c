@@ -115,6 +115,9 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 	int emptyWay = setNotFull(index);
 	if(emptyWay == -1){
 		victim = victimPLRU(LLC.cache[index].plru);
+#ifdef DEBUG
+		printf("Selected victim: %d \n", victim);
+#endif
   		LLC.cache[index].myWay[victim].tag = tag;
  			updatePLRU(LLC.cache[index].plru, victim);
 			if(getState(index, tag) == MODIFIED)
@@ -238,7 +241,7 @@ void printCache(void){
 	for (int i=0; i<SETS; i++) {
 		for (int j=0; j<ASSOCIATIVITY; j++) {
 			if(getState(i, LLC.cache[i].myWay[j].tag) != INVALID){ 
-				printf("Tag = %X, Set = %X, State = %c \n", LLC.cache[i].myWay[j].tag, i, LLC.cache[i].myWay->state); 
+				printf("Tag = %X, Set = %X, State = %c, Way = %d \n", LLC.cache[i].myWay[j].tag, i, LLC.cache[i].myWay->state, j); 
 				printPLRU = true;
 			}
 		}
@@ -279,8 +282,8 @@ int victimPLRU(uint8_t plru[]){
  	int index = 0;
  	
  	for( ; level > 0 ; level--){
-		way |= ~plru[index] << (level-1);
-		index = ((index + 1)*2+(~plru[index]))-1; 
+		way |= (~plru[index] & 0x1) << (level-1);
+		index = ((index + 1)*2+(~plru[index] & 0x01))-1; 
 	}
 	return way;
 }
