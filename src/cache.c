@@ -140,6 +140,7 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 		  LLC.cache[index].myWay[emptyWay].tag = tag;
 		  updateState(index, emptyWay, command, getSnoopResult(address), tag, address);	
 		  updatePLRU(LLC.cache[index].plru, emptyWay);
+		  messageToL1(SENDLINE, address);
   }
 }
 
