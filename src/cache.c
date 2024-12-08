@@ -38,11 +38,13 @@ void cache(Trace request){
 				misses++;
 				store(request.tag, request.index, request.n, request.address);
 			}
+			messageToL1(GETLINE, request.address);
 			break;
 		case SNOOPEDREAD:
 	 	        if(checkForPresence(request.tag, request.index) == HIT){
         			if(getState(request.index, request.tag) == MODIFIED){
-          				putSnoopResult(request.address, HITM);
+          				messageToL1(GETLINE, request.address);
+					putSnoopResult(request.address, HITM);
         			}
         			else {
           				putSnoopResult(request.address, HIT);
