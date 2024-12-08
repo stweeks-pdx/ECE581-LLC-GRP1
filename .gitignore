@@ -1,3 +1,5 @@
 *.ao
 src/obj/*
 src/bin/*
+testing/GenFiles/*.o
+testing/GenFiles/*.ao
