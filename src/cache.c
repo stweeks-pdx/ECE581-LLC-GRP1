@@ -19,17 +19,20 @@ void cache(Trace request){
 	switch(request.n){
 		case L1DATAREAD:
 		case L1INSTREAD: reads++;
-			if(checkForPresence(request.tag, request.index) == HIT); 
+			if(checkForPresence(request.tag, request.index) == HIT) hits++; 
 			else{
+				misses++;
 				store(request.tag, request.index, request.n, request.address);
 			}
 			break;
 		case L1WRITE: writes++;
 			if(checkForPresence(request.tag, request.index) == HIT) {
+				hits++;
 				updateState(request.index, way, request.n, 
 						getSnoopResult(request.address), request.tag, request.address);
 			}
 			else{
+				misses++;
 				store(request.tag, request.index, request.n, request.address);
 			}
 			break;
@@ -102,12 +105,10 @@ int checkForPresence(uint16_t tag, uint16_t index){
 		if (LLC.cache[index].myWay[i].tag == tag){
 			if (LLC.cache[index].myWay[i].state != INVALID){
 			updatePLRU(LLC.cache[index].plru, i);
-			hits++;
 			return HIT;
 			}
 		}
 	}
-	misses++;
 	return MISS;
 }
 
@@ -152,12 +153,12 @@ void busOperation(int command,uint32_t address){
 int getSnoopResult(uint32_t address){
 	int returnMe = NOHIT;
 	switch (address & MASK2LSB){
-		case 10: 
-		case 11: returnMe = NOHIT;
+		case 0x2: 
+		case 0x3: returnMe = NOHIT;
 			break;
-		case 00: returnMe = HIT;
+		case 0x0: returnMe = HIT;
 			break;
-		case 01: returnMe = HITM;
+		case 0x1: returnMe = HITM;
 			break;
 	}
 	return returnMe;
@@ -172,7 +173,7 @@ void putSnoopResult(uint32_t address, int message){
 char getState(uint16_t index, uint16_t tag){
   for(int i = 0; i < ASSOCIATIVITY; i++){
     if(LLC.cache[index].myWay[i].tag == tag){
-	    return LLC.cache[index].myWay[i].state;
+	return LLC.cache[index].myWay[i].state;
     }
   }
   return INVALID; 
@@ -250,7 +251,7 @@ void printCache(void){
 	bool printPLRU = false;
 	for (int i=0; i<SETS; i++) {
 		for (int j=0; j<ASSOCIATIVITY; j++) {
-			if(getState(i, LLC.cache[i].myWay[j].tag) != INVALID){ 
+			if(LLC.cache[i].myWay[j].state != INVALID){ 
 				printf("Tag = %X, Set = %X, State = %c, Way = %d \n", LLC.cache[i].myWay[j].tag, i, LLC.cache[i].myWay[j].state, j); 
 				printPLRU = true;
 			}
