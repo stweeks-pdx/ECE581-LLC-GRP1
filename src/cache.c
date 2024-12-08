@@ -177,6 +177,7 @@ char getState(uint16_t index, uint16_t tag){
   return INVALID; 
 }
 
+// TODO: change getnSnoopResult call inside the function to optimize
 void updateState(uint16_t index, int way, uint8_t command, int result, uint16_t tag, uint32_t address){
 	switch(getState(index,tag)){
 		case INVALID:if((command == L1DATAREAD || command == L1INSTREAD) && (result == HIT || result == HITM)){
