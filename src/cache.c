@@ -19,19 +19,20 @@ void cache(Trace request){
 	switch(request.n){
 		case L1DATAREAD:
 		case L1INSTREAD: reads++;
-			if(checkForPresence(request.tag, request.index) == HIT)	
-				break;
+			if(checkForPresence(request.tag, request.index) == HIT); 
 			else{
 				store(request.tag, request.index, request.n, request.address);
-				break;
 			}
+			break;
 		case L1WRITE: writes++;
-			if(checkForPresence(request.tag, request.index) == HIT)
-				break;
+			if(checkForPresence(request.tag, request.index) == HIT) {
+				updateState(request.index, way, request.n, 
+						getSnoopResult(request.address), request.tag, request.address);
+			}
 			else{
 				store(request.tag, request.index, request.n, request.address);
-				break;
 			}
+			break;
 		case SNOOPEDREAD:
       if(checkForPresence(request.tag, request.index) == HIT){
         if(getState(request.index, request.tag) == MODIFIED){
@@ -250,7 +251,7 @@ void printCache(void){
 	for (int i=0; i<SETS; i++) {
 		for (int j=0; j<ASSOCIATIVITY; j++) {
 			if(getState(i, LLC.cache[i].myWay[j].tag) != INVALID){ 
-				printf("Tag = %X, Set = %X, State = %c, Way = %d \n", LLC.cache[i].myWay[j].tag, i, LLC.cache[i].myWay->state, j); 
+				printf("Tag = %X, Set = %X, State = %c, Way = %d \n", LLC.cache[i].myWay[j].tag, i, LLC.cache[i].myWay[j].state, j); 
 				printPLRU = true;
 			}
 		}
