@@ -33,7 +33,6 @@ void cache(Trace request){
 				hits++;
 				updateState(request.index, way, request.n, 
 						getSnoopResult(request.address), request.tag, request.address);
-				
 			}
 			else{
 				misses++;
