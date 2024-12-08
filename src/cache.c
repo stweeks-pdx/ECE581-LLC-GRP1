@@ -122,6 +122,8 @@ void store(uint16_t tag, uint16_t index, uint8_t command, uint32_t address){
 		printf("Selected victim: %d \n", victim);
 #endif
   		LLC.cache[index].myWay[victim].tag = tag;
+		LLC.cache[index].myWay[victim].state = INVALID;
+
  			updatePLRU(LLC.cache[index].plru, victim);
 			if(getState(index, tag) == MODIFIED) {
 				victimAddress |= 0x3;
