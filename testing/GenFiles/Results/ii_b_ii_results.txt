@@ -1,0 +1,265 @@
+BusOp: READ, Address: 00000000, Snoop Result HIT 
+BusOp: READ, Address: 00100000, Snoop Result HIT 
+BusOp: READ, Address: 00200000, Snoop Result HIT 
+BusOp: READ, Address: 00300000, Snoop Result HIT 
+BusOp: READ, Address: 00400000, Snoop Result HIT 
+BusOp: READ, Address: 00500000, Snoop Result HIT 
+BusOp: READ, Address: 00600000, Snoop Result HIT 
+BusOp: READ, Address: 00700000, Snoop Result HIT 
+BusOp: READ, Address: 00800000, Snoop Result HIT 
+BusOp: READ, Address: 00900000, Snoop Result HIT 
+BusOp: READ, Address: 00A00000, Snoop Result HIT 
+BusOp: READ, Address: 00B00000, Snoop Result HIT 
+BusOp: READ, Address: 00C00000, Snoop Result HIT 
+BusOp: READ, Address: 00D00000, Snoop Result HIT 
+BusOp: READ, Address: 00E00000, Snoop Result HIT 
+BusOp: READ, Address: 00F00000, Snoop Result HIT 
+PRINTING CACHE
+++++++++++++++++
+Tag = 000, Set = 0000, State = S, Way = 00 
+Tag = 001, Set = 0000, State = S, Way = 01 
+Tag = 002, Set = 0000, State = S, Way = 02 
+Tag = 003, Set = 0000, State = S, Way = 03 
+Tag = 004, Set = 0000, State = S, Way = 04 
+Tag = 005, Set = 0000, State = S, Way = 05 
+Tag = 006, Set = 0000, State = S, Way = 06 
+Tag = 007, Set = 0000, State = S, Way = 07 
+Tag = 008, Set = 0000, State = S, Way = 08 
+Tag = 009, Set = 0000, State = S, Way = 09 
+Tag = 00A, Set = 0000, State = S, Way = 10 
+Tag = 00B, Set = 0000, State = S, Way = 11 
+Tag = 00C, Set = 0000, State = S, Way = 12 
+Tag = 00D, Set = 0000, State = S, Way = 13 
+Tag = 00E, Set = 0000, State = S, Way = 14 
+Tag = 00F, Set = 0000, State = S, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+================
+BusOp: READ, Address: 00000043, Snoop Result NOHIT 
+BusOp: READ, Address: 00100043, Snoop Result NOHIT 
+BusOp: READ, Address: 00200043, Snoop Result NOHIT 
+BusOp: READ, Address: 00300043, Snoop Result NOHIT 
+BusOp: READ, Address: 00400043, Snoop Result NOHIT 
+BusOp: READ, Address: 00500043, Snoop Result NOHIT 
+BusOp: READ, Address: 00600043, Snoop Result NOHIT 
+BusOp: READ, Address: 00700043, Snoop Result NOHIT 
+BusOp: READ, Address: 00800043, Snoop Result NOHIT 
+BusOp: READ, Address: 00900043, Snoop Result NOHIT 
+BusOp: READ, Address: 00A00043, Snoop Result NOHIT 
+BusOp: READ, Address: 00B00043, Snoop Result NOHIT 
+BusOp: READ, Address: 00C00043, Snoop Result NOHIT 
+BusOp: READ, Address: 00D00043, Snoop Result NOHIT 
+BusOp: READ, Address: 00E00043, Snoop Result NOHIT 
+BusOp: READ, Address: 00F00043, Snoop Result NOHIT 
+PRINTING CACHE
+++++++++++++++++
+Tag = 000, Set = 0000, State = S, Way = 00 
+Tag = 001, Set = 0000, State = S, Way = 01 
+Tag = 002, Set = 0000, State = S, Way = 02 
+Tag = 003, Set = 0000, State = S, Way = 03 
+Tag = 004, Set = 0000, State = S, Way = 04 
+Tag = 005, Set = 0000, State = S, Way = 05 
+Tag = 006, Set = 0000, State = S, Way = 06 
+Tag = 007, Set = 0000, State = S, Way = 07 
+Tag = 008, Set = 0000, State = S, Way = 08 
+Tag = 009, Set = 0000, State = S, Way = 09 
+Tag = 00A, Set = 0000, State = S, Way = 10 
+Tag = 00B, Set = 0000, State = S, Way = 11 
+Tag = 00C, Set = 0000, State = S, Way = 12 
+Tag = 00D, Set = 0000, State = S, Way = 13 
+Tag = 00E, Set = 0000, State = S, Way = 14 
+Tag = 00F, Set = 0000, State = S, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+Tag = 000, Set = 0001, State = E, Way = 00 
+Tag = 001, Set = 0001, State = E, Way = 01 
+Tag = 002, Set = 0001, State = E, Way = 02 
+Tag = 003, Set = 0001, State = E, Way = 03 
+Tag = 004, Set = 0001, State = E, Way = 04 
+Tag = 005, Set = 0001, State = E, Way = 05 
+Tag = 006, Set = 0001, State = E, Way = 06 
+Tag = 007, Set = 0001, State = E, Way = 07 
+Tag = 008, Set = 0001, State = E, Way = 08 
+Tag = 009, Set = 0001, State = E, Way = 09 
+Tag = 00A, Set = 0001, State = E, Way = 10 
+Tag = 00B, Set = 0001, State = E, Way = 11 
+Tag = 00C, Set = 0001, State = E, Way = 12 
+Tag = 00D, Set = 0001, State = E, Way = 13 
+Tag = 00E, Set = 0001, State = E, Way = 14 
+Tag = 00F, Set = 0001, State = E, Way = 15 
+PLRU for set 1: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+================
+PRINTING CACHE
+++++++++++++++++
+Tag = 000, Set = 0000, State = S, Way = 00 
+Tag = 001, Set = 0000, State = S, Way = 01 
+Tag = 002, Set = 0000, State = S, Way = 02 
+Tag = 003, Set = 0000, State = S, Way = 03 
+Tag = 004, Set = 0000, State = S, Way = 04 
+Tag = 005, Set = 0000, State = S, Way = 05 
+Tag = 006, Set = 0000, State = S, Way = 06 
+Tag = 007, Set = 0000, State = S, Way = 07 
+Tag = 008, Set = 0000, State = S, Way = 08 
+Tag = 009, Set = 0000, State = S, Way = 09 
+Tag = 00A, Set = 0000, State = S, Way = 10 
+Tag = 00B, Set = 0000, State = S, Way = 11 
+Tag = 00C, Set = 0000, State = S, Way = 12 
+Tag = 00D, Set = 0000, State = S, Way = 13 
+Tag = 00E, Set = 0000, State = S, Way = 14 
+Tag = 00F, Set = 0000, State = S, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+Tag = 000, Set = 0001, State = E, Way = 00 
+Tag = 001, Set = 0001, State = E, Way = 01 
+Tag = 002, Set = 0001, State = E, Way = 02 
+Tag = 003, Set = 0001, State = E, Way = 03 
+Tag = 004, Set = 0001, State = E, Way = 04 
+Tag = 005, Set = 0001, State = E, Way = 05 
+Tag = 006, Set = 0001, State = E, Way = 06 
+Tag = 007, Set = 0001, State = E, Way = 07 
+Tag = 008, Set = 0001, State = E, Way = 08 
+Tag = 009, Set = 0001, State = E, Way = 09 
+Tag = 00A, Set = 0001, State = E, Way = 10 
+Tag = 00B, Set = 0001, State = E, Way = 11 
+Tag = 00C, Set = 0001, State = E, Way = 12 
+Tag = 00D, Set = 0001, State = E, Way = 13 
+Tag = 00E, Set = 0001, State = E, Way = 14 
+Tag = 00F, Set = 0001, State = E, Way = 15 
+PLRU for set 1: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+================
+PRINTING CACHE
+++++++++++++++++
+Tag = 000, Set = 0000, State = S, Way = 00 
+Tag = 001, Set = 0000, State = S, Way = 01 
+Tag = 002, Set = 0000, State = S, Way = 02 
+Tag = 003, Set = 0000, State = S, Way = 03 
+Tag = 004, Set = 0000, State = S, Way = 04 
+Tag = 005, Set = 0000, State = S, Way = 05 
+Tag = 006, Set = 0000, State = S, Way = 06 
+Tag = 007, Set = 0000, State = S, Way = 07 
+Tag = 008, Set = 0000, State = S, Way = 08 
+Tag = 009, Set = 0000, State = S, Way = 09 
+Tag = 00A, Set = 0000, State = S, Way = 10 
+Tag = 00B, Set = 0000, State = S, Way = 11 
+Tag = 00C, Set = 0000, State = S, Way = 12 
+Tag = 00D, Set = 0000, State = S, Way = 13 
+Tag = 00E, Set = 0000, State = S, Way = 14 
+Tag = 00F, Set = 0000, State = S, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+Tag = 000, Set = 0001, State = E, Way = 00 
+Tag = 001, Set = 0001, State = E, Way = 01 
+Tag = 002, Set = 0001, State = E, Way = 02 
+Tag = 003, Set = 0001, State = E, Way = 03 
+Tag = 004, Set = 0001, State = E, Way = 04 
+Tag = 005, Set = 0001, State = E, Way = 05 
+Tag = 006, Set = 0001, State = E, Way = 06 
+Tag = 007, Set = 0001, State = E, Way = 07 
+Tag = 008, Set = 0001, State = E, Way = 08 
+Tag = 009, Set = 0001, State = E, Way = 09 
+Tag = 00A, Set = 0001, State = E, Way = 10 
+Tag = 00B, Set = 0001, State = E, Way = 11 
+Tag = 00C, Set = 0001, State = E, Way = 12 
+Tag = 00D, Set = 0001, State = E, Way = 13 
+Tag = 00E, Set = 0001, State = E, Way = 14 
+Tag = 00F, Set = 0001, State = E, Way = 15 
+PLRU for set 1: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+================
+BusOp: INVALIDATE, Address: 00000000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00100000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00200000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00300000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00400000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00500000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00600000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00700000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00800000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00900000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00A00000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00B00000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00C00000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00D00000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00E00000, Snoop Result HIT 
+BusOp: INVALIDATE, Address: 00F00000, Snoop Result HIT 
+PRINTING CACHE
+++++++++++++++++
+Tag = 000, Set = 0000, State = M, Way = 00 
+Tag = 001, Set = 0000, State = M, Way = 01 
+Tag = 002, Set = 0000, State = M, Way = 02 
+Tag = 003, Set = 0000, State = M, Way = 03 
+Tag = 004, Set = 0000, State = M, Way = 04 
+Tag = 005, Set = 0000, State = M, Way = 05 
+Tag = 006, Set = 0000, State = M, Way = 06 
+Tag = 007, Set = 0000, State = M, Way = 07 
+Tag = 008, Set = 0000, State = M, Way = 08 
+Tag = 009, Set = 0000, State = M, Way = 09 
+Tag = 00A, Set = 0000, State = M, Way = 10 
+Tag = 00B, Set = 0000, State = M, Way = 11 
+Tag = 00C, Set = 0000, State = M, Way = 12 
+Tag = 00D, Set = 0000, State = M, Way = 13 
+Tag = 00E, Set = 0000, State = M, Way = 14 
+Tag = 00F, Set = 0000, State = M, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+Tag = 000, Set = 0001, State = E, Way = 00 
+Tag = 001, Set = 0001, State = E, Way = 01 
+Tag = 002, Set = 0001, State = E, Way = 02 
+Tag = 003, Set = 0001, State = E, Way = 03 
+Tag = 004, Set = 0001, State = E, Way = 04 
+Tag = 005, Set = 0001, State = E, Way = 05 
+Tag = 006, Set = 0001, State = E, Way = 06 
+Tag = 007, Set = 0001, State = E, Way = 07 
+Tag = 008, Set = 0001, State = E, Way = 08 
+Tag = 009, Set = 0001, State = E, Way = 09 
+Tag = 00A, Set = 0001, State = E, Way = 10 
+Tag = 00B, Set = 0001, State = E, Way = 11 
+Tag = 00C, Set = 0001, State = E, Way = 12 
+Tag = 00D, Set = 0001, State = E, Way = 13 
+Tag = 00E, Set = 0001, State = E, Way = 14 
+Tag = 00F, Set = 0001, State = E, Way = 15 
+PLRU for set 1: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+================
+PRINTING CACHE
+++++++++++++++++
+Tag = 000, Set = 0000, State = M, Way = 00 
+Tag = 001, Set = 0000, State = M, Way = 01 
+Tag = 002, Set = 0000, State = M, Way = 02 
+Tag = 003, Set = 0000, State = M, Way = 03 
+Tag = 004, Set = 0000, State = M, Way = 04 
+Tag = 005, Set = 0000, State = M, Way = 05 
+Tag = 006, Set = 0000, State = M, Way = 06 
+Tag = 007, Set = 0000, State = M, Way = 07 
+Tag = 008, Set = 0000, State = M, Way = 08 
+Tag = 009, Set = 0000, State = M, Way = 09 
+Tag = 00A, Set = 0000, State = M, Way = 10 
+Tag = 00B, Set = 0000, State = M, Way = 11 
+Tag = 00C, Set = 0000, State = M, Way = 12 
+Tag = 00D, Set = 0000, State = M, Way = 13 
+Tag = 00E, Set = 0000, State = M, Way = 14 
+Tag = 00F, Set = 0000, State = M, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+Tag = 000, Set = 0001, State = M, Way = 00 
+Tag = 001, Set = 0001, State = M, Way = 01 
+Tag = 002, Set = 0001, State = M, Way = 02 
+Tag = 003, Set = 0001, State = M, Way = 03 
+Tag = 004, Set = 0001, State = M, Way = 04 
+Tag = 005, Set = 0001, State = M, Way = 05 
+Tag = 006, Set = 0001, State = M, Way = 06 
+Tag = 007, Set = 0001, State = M, Way = 07 
+Tag = 008, Set = 0001, State = M, Way = 08 
+Tag = 009, Set = 0001, State = M, Way = 09 
+Tag = 00A, Set = 0001, State = M, Way = 10 
+Tag = 00B, Set = 0001, State = M, Way = 11 
+Tag = 00C, Set = 0001, State = M, Way = 12 
+Tag = 00D, Set = 0001, State = M, Way = 13 
+Tag = 00E, Set = 0001, State = M, Way = 14 
+Tag = 00F, Set = 0001, State = M, Way = 15 
+PLRU for set 1: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+================
+Hits: 64, Misses: 32, Reads: 64, Writes: 32, Hit ratio: 2.000000 

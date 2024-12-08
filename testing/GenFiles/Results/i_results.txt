@@ -1,0 +1,110 @@
+BusOp: READ, Address: 1000003, Snoop Result NOHIT 
+Tag = 10, Set = 0, State = E, Way = 0 
+PLRU for set 0: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+BusOp: READ, Address: 1100003, Snoop Result NOHIT 
+Tag = 10, Set = 0, State = E, Way = 0 
+Tag = 11, Set = 0, State = E, Way = 1 
+PLRU for set 0: 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 
+
+BusOp: READ, Address: 1200003, Snoop Result NOHIT 
+BusOp: READ, Address: 1300003, Snoop Result NOHIT 
+BusOp: READ, Address: 1400003, Snoop Result NOHIT 
+BusOp: READ, Address: 1500003, Snoop Result NOHIT 
+BusOp: READ, Address: 1600003, Snoop Result NOHIT 
+BusOp: READ, Address: 1700003, Snoop Result NOHIT 
+BusOp: READ, Address: 1800003, Snoop Result NOHIT 
+BusOp: READ, Address: 1900003, Snoop Result NOHIT 
+BusOp: READ, Address: 1A00003, Snoop Result NOHIT 
+BusOp: READ, Address: 1B00003, Snoop Result NOHIT 
+BusOp: READ, Address: 1C00003, Snoop Result NOHIT 
+BusOp: READ, Address: 1D00003, Snoop Result NOHIT 
+BusOp: READ, Address: 1E00003, Snoop Result NOHIT 
+BusOp: READ, Address: 1F00003, Snoop Result NOHIT 
+Tag = 10, Set = 0, State = E, Way = 0 
+Tag = 11, Set = 0, State = E, Way = 1 
+Tag = 12, Set = 0, State = E, Way = 2 
+Tag = 13, Set = 0, State = E, Way = 3 
+Tag = 14, Set = 0, State = E, Way = 4 
+Tag = 15, Set = 0, State = E, Way = 5 
+Tag = 16, Set = 0, State = E, Way = 6 
+Tag = 17, Set = 0, State = E, Way = 7 
+Tag = 18, Set = 0, State = E, Way = 8 
+Tag = 19, Set = 0, State = E, Way = 9 
+Tag = 1A, Set = 0, State = E, Way = 10 
+Tag = 1B, Set = 0, State = E, Way = 11 
+Tag = 1C, Set = 0, State = E, Way = 12 
+Tag = 1D, Set = 0, State = E, Way = 13 
+Tag = 1E, Set = 0, State = E, Way = 14 
+Tag = 1F, Set = 0, State = E, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+L2: INVALIDATLINE 1000000 
+BusOp: READ, Address: 3, Snoop Result NOHIT 
+Tag = 0, Set = 0, State = E, Way = 0 
+Tag = 11, Set = 0, State = E, Way = 1 
+Tag = 12, Set = 0, State = E, Way = 2 
+Tag = 13, Set = 0, State = E, Way = 3 
+Tag = 14, Set = 0, State = E, Way = 4 
+Tag = 15, Set = 0, State = E, Way = 5 
+Tag = 16, Set = 0, State = E, Way = 6 
+Tag = 17, Set = 0, State = E, Way = 7 
+Tag = 18, Set = 0, State = E, Way = 8 
+Tag = 19, Set = 0, State = E, Way = 9 
+Tag = 1A, Set = 0, State = E, Way = 10 
+Tag = 1B, Set = 0, State = E, Way = 11 
+Tag = 1C, Set = 0, State = E, Way = 12 
+Tag = 1D, Set = 0, State = E, Way = 13 
+Tag = 1E, Set = 0, State = E, Way = 14 
+Tag = 1F, Set = 0, State = E, Way = 15 
+PLRU for set 0: 0 0 1 0 1 1 1 0 1 1 1 1 1 1 1 
+
+L2: INVALIDATLINE 1800000 
+BusOp: READ, Address: 100003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1400000 
+BusOp: READ, Address: 200003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1C00000 
+BusOp: READ, Address: 300003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1200000 
+BusOp: READ, Address: 400003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1A00000 
+BusOp: READ, Address: 500003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1600000 
+BusOp: READ, Address: 600003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1E00000 
+BusOp: READ, Address: 700003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1100000 
+BusOp: READ, Address: 800003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1900000 
+BusOp: READ, Address: 900003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1500000 
+BusOp: READ, Address: A00003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1D00000 
+BusOp: READ, Address: B00003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1300000 
+BusOp: READ, Address: C00003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1B00000 
+BusOp: READ, Address: D00003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1700000 
+BusOp: READ, Address: E00003, Snoop Result NOHIT 
+L2: INVALIDATLINE 1F00000 
+BusOp: READ, Address: F00003, Snoop Result NOHIT 
+Tag = 0, Set = 0, State = E, Way = 0 
+Tag = 8, Set = 0, State = E, Way = 1 
+Tag = 4, Set = 0, State = E, Way = 2 
+Tag = C, Set = 0, State = E, Way = 3 
+Tag = 2, Set = 0, State = E, Way = 4 
+Tag = A, Set = 0, State = E, Way = 5 
+Tag = 6, Set = 0, State = E, Way = 6 
+Tag = E, Set = 0, State = E, Way = 7 
+Tag = 1, Set = 0, State = E, Way = 8 
+Tag = 9, Set = 0, State = E, Way = 9 
+Tag = 5, Set = 0, State = E, Way = 10 
+Tag = D, Set = 0, State = E, Way = 11 
+Tag = 3, Set = 0, State = E, Way = 12 
+Tag = B, Set = 0, State = E, Way = 13 
+Tag = 7, Set = 0, State = E, Way = 14 
+Tag = F, Set = 0, State = E, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+Hits: 0, Misses: 32, Reads: 32, Writes: 0, Hit ratio: 0.000000 
