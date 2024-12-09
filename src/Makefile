@@ -25,7 +25,7 @@ $(EXE):
 	mkdir -p $@
 
 $(ODIR)/%.o: %.c $(DEPS) | $(EXE)
-	$(CC) $(TRACEFLAGS) -c -o $@ $< $(CFLAGS)
+	$(CC) $(TRACEFLAGS) -DBYTESELECTWIDTH=6 -DASSOCIATIVITY=16 -DSETS=16*1024 -c -o $@ $< $(CFLAGS)
 
 build: $(OBJ) | $(EXE)
 	$(CC) -o $(EXE)/llc $^ $(CFLAGS)

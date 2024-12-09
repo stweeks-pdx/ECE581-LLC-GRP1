@@ -3,14 +3,37 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 
 #include "defines.h"
 #include "trace.h"
 #include "cache.h"
 
+// global singletons
 uint8_t normalMode = 1;
+uint32_t BYTESELECTMASK = 0;
+uint32_t INDEXWIDTH = 0;
+uint32_t INDEXMASK = 0;
+uint32_t TAGWIDTH = 0;
+uint32_t TAGMASK = 0;
+
+int makeMask(int maskWidth);
 
 int main(int argc, char *argv[]) {
+// Calculate singletons
+BYTESELECTMASK = makeMask(BYTESELECTWIDTH);
+INDEXWIDTH = log2(SETS);
+INDEXMASK = makeMask(INDEXWIDTH);
+TAGWIDTH = ADDRESSWIDTH - INDEXWIDTH - BYTESELECTWIDTH;
+TAGMASK = makeMask(TAGWIDTH);
+
+#ifdef DEBUG
+    printf("Byte Select = %d, Associativity = %d, Sets = %d\n", BYTESELECTWIDTH, ASSOCIATIVITY, SETS);
+    printf("BYTESELECTMASK = %x, INDEXMASK = %x, TAGMASK = %x\n", BYTESELECTMASK, INDEXMASK, TAGMASK);
+    printf("Index bits = %d, Tag bits = %d\n", INDEXWIDTH, TAGWIDTH);
+#endif
+
+    // Arg parsing
     bool useDefF = false;
     if (argc < 2) {
         useDefF = true;
@@ -52,7 +75,6 @@ int main(int argc, char *argv[]) {
 #endif	
 	Trace event = ParseTrace(&buffer[0]);
 	cache(event);
-	// Process the buffer
     }
     // clean up allocated objects before exiting
     displayTraceResult();
@@ -60,3 +82,12 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
+int makeMask(int maskWidth){
+    int mask = 0;
+
+    for(int i = 0; i < maskWidth; i++) {
+        mask = ((mask << 1) | 1);
+    }
+
+    return mask;
+}
