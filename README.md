@@ -25,7 +25,7 @@ src -- source files and modules needed to build our LLC simulator.
 
 include -- headers and includes for simulator and testing.
 
-doc -- docs folder with complete design and testing implementation details.
+doc -- [docs](doc/README.md) folder with complete design and testing implementation details.
 
 testing -- testing folder with generated and hand written tests.
 
@@ -36,11 +36,15 @@ To run this test you must be inside the src directory using the provided Makefil
 
 The following steps can be taken to build the project:
 
+`mkdir obj`
+
 `make clean`
 
 `make build`
 
 NOTE: If you want to set debug mode run `make build DEBUG=true`
+
+NOTE: We have not figured out how to create the object file directly in the makefile for now
 
 After running the build command the executable `llc` will be placed into the `bin/` under the `src/` directory.
 
