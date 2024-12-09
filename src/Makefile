@@ -24,10 +24,13 @@ TEST = $(patsubst %,$(TGDIR)/%,$(_TEST))
 $(EXE):
 	mkdir -p $@
 
-$(ODIR)/%.o: %.c $(DEPS) | $(EXE)
+$(ODIR):
+	mkdir -p $@
+
+$(ODIR)/%.o: %.c $(DEPS) | $(EXE) $(ODIR)
 	$(CC) $(TRACEFLAGS) -c -o $@ $< $(CFLAGS)
 
-build: $(OBJ) | $(EXE)
+build: $(OBJ) | $(EXE) $(ODIR)
 	$(CC) -o $(EXE)/llc $^ $(CFLAGS)
 
 testgen: $(TEST)
