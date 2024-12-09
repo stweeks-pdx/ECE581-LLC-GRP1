@@ -246,7 +246,7 @@ void messageToL1(int message, uint32_t address){
 }
 
 void displayTraceResult(){
-	float hitRate = (float) hits/misses;
+	float hitRate = (float) hits/(writes+reads);
 	printf("Hits: %d, Misses: %d, Reads: %d, Writes: %d, Hit ratio: %f \n", hits, misses, reads, writes, hitRate);
 }
 
