@@ -25,7 +25,7 @@ src -- source files and modules needed to build our LLC simulator.
 
 include -- headers and includes for simulator and testing.
 
-doc -- docs folder with complete design and testing implementation details.
+doc -- [docs](doc/README.md) folder with complete design and testing implementation details.
 
 testing -- testing folder with generated and hand written tests.
 
