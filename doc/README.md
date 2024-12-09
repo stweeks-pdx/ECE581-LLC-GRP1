@@ -61,13 +61,13 @@ given are to be run, these include commands 0-9 as specified in the assignment r
 
 6 -- Snooped Invalidate
 
-7 -- local testing debug
+7 -- internal debugging message
 
 8 -- clear the cache and reset states
 
 9 -- print cache
 
-Once a command has been determined we need to go through the logial inferences for each. 
+Once a command has been determined we need to go through the logical inferences for each. 
 
 ### Processor commands
 As the control flow above shows if we have a processor command
