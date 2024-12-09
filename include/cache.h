@@ -4,6 +4,7 @@
 #include "defines.h"
 #include <stdbool.h>
 #include <stdint.h>
+#include <math.h>
 #define MASK2LSB 0x3
 
 //MESI States
@@ -41,22 +42,21 @@
 #define CLEARCACHE 8
 #define PRINTCACHE 9
 
-extern uint8_t normalMode;
-
 typedef struct { 
 	uint16_t tag;
 	char state;
 } way;
 
 typedef struct { 
-	way myWay[ASSOCIATIVITY];
-	uint8_t plru[ASSOCIATIVITY-1];
+	way *myWay;
+	uint8_t *plru;
 } set;
 
 typedef struct {
-	set cache[SETS];
+	set *cache;
 } cacheStruct;
 
+extern cacheStruct *LLC;
 
 //*******************FUNCTION PROTOTYPES**********************************
 
@@ -207,7 +207,15 @@ int findWay(uint16_t index, uint16_t tag);
 /*
   cacheInit: Initializes the cache by setting all the ways in every set to INVALID
 */
-void cacheInit(void);
+cacheStruct *cacheInit(void);
+
+/*
+cacheDestroy: Destroys the cache
+
+Arguments:
+  LLC: LLC cache pointer
+*/
+void cacheDestroy(cacheStruct *LLC);
 
 void plruInit(void);
 #endif
