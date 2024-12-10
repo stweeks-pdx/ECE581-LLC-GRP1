@@ -44,17 +44,12 @@ NOTE: If you want to set debug mode run `make build DEBUG=true`
 
 After running the build command the executable `llc` will be placed into the `bin/` under the `src/` directory.
 
-You can then run the command using the following structure: `./src/bin/llc <path/to/test> -<mode>`
+You can then run the command using the following structure: `./src/bin/llc -f <path/to/test>`
 
-If you do not supply a `mode` the system will default to nomralMode. If you don't pass a path it defautls to
+If you do not supply a `mode` the system will default to normalMode. If you don't pass a path it defautls to
 `rwims.din` inside the repo.
 
-## Options for the Command Line
-`-n` -- Normal Mode printout for the system
-
-`-s` -- Silent Mode printout for the system
-
 ## Adendum
-There are certain variables that can be set in the makefile to change at build time with the -D flag, those can
-be found in the defines.h. If a variable is not set in the defines.h header, it is not meant to be changed between
+There are certain variables that can be set at runtime through command line arguments, those can
+be found by calling `./src/bin/llc -h`. If a variable is not listed, it is not meant to be changed between
 operations.
