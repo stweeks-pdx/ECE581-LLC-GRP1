@@ -1,0 +1,120 @@
+BusOp: READ, Address: 01000000, Snoop Result HIT 
+L2: SENDLINE 01000000 
+BusOp: READ, Address: 01100000, Snoop Result HIT 
+L2: SENDLINE 01100000 
+BusOp: READ, Address: 01200000, Snoop Result HIT 
+L2: SENDLINE 01200000 
+BusOp: READ, Address: 01300000, Snoop Result HIT 
+L2: SENDLINE 01300000 
+BusOp: READ, Address: 01400000, Snoop Result HIT 
+L2: SENDLINE 01400000 
+BusOp: READ, Address: 01500000, Snoop Result HIT 
+L2: SENDLINE 01500000 
+BusOp: READ, Address: 01600000, Snoop Result HIT 
+L2: SENDLINE 01600000 
+BusOp: READ, Address: 01700000, Snoop Result HIT 
+L2: SENDLINE 01700000 
+BusOp: READ, Address: 01800000, Snoop Result HIT 
+L2: SENDLINE 01800000 
+BusOp: READ, Address: 01900000, Snoop Result HIT 
+L2: SENDLINE 01900000 
+BusOp: READ, Address: 01A00000, Snoop Result HIT 
+L2: SENDLINE 01A00000 
+BusOp: READ, Address: 01B00000, Snoop Result HIT 
+L2: SENDLINE 01B00000 
+BusOp: READ, Address: 01C00000, Snoop Result HIT 
+L2: SENDLINE 01C00000 
+BusOp: READ, Address: 01D00000, Snoop Result HIT 
+L2: SENDLINE 01D00000 
+BusOp: READ, Address: 01E00000, Snoop Result HIT 
+L2: SENDLINE 01E00000 
+BusOp: READ, Address: 01F00000, Snoop Result HIT 
+L2: SENDLINE 01F00000 
+int: HIT, Address: 01F00000 
+L2: INVALIDATELINE 01F00000 
+BusOp: READ, Address: 00000000, Snoop Result HIT 
+L2: SENDLINE 00000000 
+int: HIT, Address: 01E00000 
+L2: INVALIDATELINE 01E00000 
+BusOp: READ, Address: 00100000, Snoop Result HIT 
+L2: SENDLINE 00100000 
+int: HIT, Address: 01D00000 
+L2: INVALIDATELINE 01D00000 
+BusOp: READ, Address: 00200000, Snoop Result HIT 
+L2: SENDLINE 00200000 
+int: HIT, Address: 01C00000 
+L2: INVALIDATELINE 01C00000 
+BusOp: READ, Address: 00300000, Snoop Result HIT 
+L2: SENDLINE 00300000 
+int: HIT, Address: 01B00000 
+L2: INVALIDATELINE 01B00000 
+BusOp: READ, Address: 00400000, Snoop Result HIT 
+L2: SENDLINE 00400000 
+int: HIT, Address: 01A00000 
+L2: INVALIDATELINE 01A00000 
+BusOp: READ, Address: 00500000, Snoop Result HIT 
+L2: SENDLINE 00500000 
+int: HIT, Address: 01900000 
+L2: INVALIDATELINE 01900000 
+BusOp: READ, Address: 00600000, Snoop Result HIT 
+L2: SENDLINE 00600000 
+int: HIT, Address: 01800000 
+L2: INVALIDATELINE 01800000 
+BusOp: READ, Address: 00700000, Snoop Result HIT 
+L2: SENDLINE 00700000 
+int: HIT, Address: 01700000 
+L2: INVALIDATELINE 01700000 
+BusOp: READ, Address: 00800000, Snoop Result HIT 
+L2: SENDLINE 00800000 
+int: HIT, Address: 01600000 
+L2: INVALIDATELINE 01600000 
+BusOp: READ, Address: 00900000, Snoop Result HIT 
+L2: SENDLINE 00900000 
+int: HIT, Address: 01500000 
+L2: INVALIDATELINE 01500000 
+BusOp: READ, Address: 00A00000, Snoop Result HIT 
+L2: SENDLINE 00A00000 
+int: HIT, Address: 01400000 
+L2: INVALIDATELINE 01400000 
+BusOp: READ, Address: 00B00000, Snoop Result HIT 
+L2: SENDLINE 00B00000 
+int: HIT, Address: 01300000 
+L2: INVALIDATELINE 01300000 
+BusOp: READ, Address: 00C00000, Snoop Result HIT 
+L2: SENDLINE 00C00000 
+int: HIT, Address: 01200000 
+L2: INVALIDATELINE 01200000 
+BusOp: READ, Address: 00D00000, Snoop Result HIT 
+L2: SENDLINE 00D00000 
+int: HIT, Address: 01100000 
+L2: INVALIDATELINE 01100000 
+BusOp: READ, Address: 00E00000, Snoop Result HIT 
+L2: SENDLINE 00E00000 
+int: HIT, Address: 01000000 
+L2: INVALIDATELINE 01000000 
+BusOp: READ, Address: 00F00000, Snoop Result HIT 
+L2: SENDLINE 00F00000 
+
+PRINTING CACHE
+++++++++++++++++
+Tag = 00F, Set = 0000, State = S, Way = 00 
+Tag = 00E, Set = 0000, State = S, Way = 01 
+Tag = 00D, Set = 0000, State = S, Way = 02 
+Tag = 00C, Set = 0000, State = S, Way = 03 
+Tag = 00B, Set = 0000, State = S, Way = 04 
+Tag = 00A, Set = 0000, State = S, Way = 05 
+Tag = 009, Set = 0000, State = S, Way = 06 
+Tag = 008, Set = 0000, State = S, Way = 07 
+Tag = 007, Set = 0000, State = S, Way = 08 
+Tag = 006, Set = 0000, State = S, Way = 09 
+Tag = 005, Set = 0000, State = S, Way = 10 
+Tag = 004, Set = 0000, State = S, Way = 11 
+Tag = 003, Set = 0000, State = S, Way = 12 
+Tag = 002, Set = 0000, State = S, Way = 13 
+Tag = 001, Set = 0000, State = S, Way = 14 
+Tag = 000, Set = 0000, State = S, Way = 15 
+PLRU for set 0: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+================
+
+Hits: 0, Misses: 32, Reads: 32, Writes: 0, Hit ratio: 0.000000 

@@ -1,0 +1,127 @@
+BusOp: READ, Address: 01000000, Snoop Result NOHIT 
+L2: SENDLINE 01000003 
+BusOp: READ, Address: 01100000, Snoop Result NOHIT 
+L2: SENDLINE 01100003 
+BusOp: READ, Address: 01200000, Snoop Result NOHIT 
+L2: SENDLINE 01200003 
+BusOp: READ, Address: 01300000, Snoop Result NOHIT 
+L2: SENDLINE 01300003 
+BusOp: READ, Address: 01400000, Snoop Result NOHIT 
+L2: SENDLINE 01400003 
+BusOp: READ, Address: 01500000, Snoop Result NOHIT 
+L2: SENDLINE 01500003 
+BusOp: READ, Address: 01600000, Snoop Result NOHIT 
+L2: SENDLINE 01600003 
+BusOp: READ, Address: 01700000, Snoop Result NOHIT 
+L2: SENDLINE 01700003 
+BusOp: READ, Address: 01800000, Snoop Result NOHIT 
+L2: SENDLINE 01800003 
+BusOp: READ, Address: 01900000, Snoop Result NOHIT 
+L2: SENDLINE 01900003 
+BusOp: READ, Address: 01A00000, Snoop Result NOHIT 
+L2: SENDLINE 01A00003 
+BusOp: READ, Address: 01B00000, Snoop Result NOHIT 
+L2: SENDLINE 01B00003 
+BusOp: READ, Address: 01C00000, Snoop Result NOHIT 
+L2: SENDLINE 01C00003 
+BusOp: READ, Address: 01D00000, Snoop Result NOHIT 
+L2: SENDLINE 01D00003 
+BusOp: READ, Address: 01E00000, Snoop Result NOHIT 
+L2: SENDLINE 01E00003 
+BusOp: READ, Address: 01F00000, Snoop Result NOHIT 
+L2: SENDLINE 01F00003 
+L2: INVALIDATELINE 01000000 
+BusOp: READ, Address: 00000000, Snoop Result NOHIT 
+L2: SENDLINE 00000003 
+L2: INVALIDATELINE 01800000 
+BusOp: READ, Address: 00100000, Snoop Result NOHIT 
+L2: SENDLINE 00100003 
+L2: INVALIDATELINE 01400000 
+BusOp: READ, Address: 00200000, Snoop Result NOHIT 
+L2: SENDLINE 00200003 
+L2: INVALIDATELINE 01C00000 
+BusOp: READ, Address: 00300000, Snoop Result NOHIT 
+L2: SENDLINE 00300003 
+L2: INVALIDATELINE 01200000 
+BusOp: READ, Address: 00400000, Snoop Result NOHIT 
+L2: SENDLINE 00400003 
+L2: INVALIDATELINE 01A00000 
+BusOp: READ, Address: 00500000, Snoop Result NOHIT 
+L2: SENDLINE 00500003 
+L2: INVALIDATELINE 01600000 
+BusOp: READ, Address: 00600000, Snoop Result NOHIT 
+L2: SENDLINE 00600003 
+L2: INVALIDATELINE 01E00000 
+BusOp: READ, Address: 00700000, Snoop Result NOHIT 
+L2: SENDLINE 00700003 
+
+PRINTING CACHE
+++++++++++++++++
+Tag = 000, Set = 0000, State = E, Way = 00 
+Tag = 011, Set = 0000, State = E, Way = 01 
+Tag = 004, Set = 0000, State = E, Way = 02 
+Tag = 013, Set = 0000, State = E, Way = 03 
+Tag = 002, Set = 0000, State = E, Way = 04 
+Tag = 015, Set = 0000, State = E, Way = 05 
+Tag = 006, Set = 0000, State = E, Way = 06 
+Tag = 017, Set = 0000, State = E, Way = 07 
+Tag = 001, Set = 0000, State = E, Way = 08 
+Tag = 019, Set = 0000, State = E, Way = 09 
+Tag = 005, Set = 0000, State = E, Way = 10 
+Tag = 01B, Set = 0000, State = E, Way = 11 
+Tag = 003, Set = 0000, State = E, Way = 12 
+Tag = 01D, Set = 0000, State = E, Way = 13 
+Tag = 007, Set = 0000, State = E, Way = 14 
+Tag = 01F, Set = 0000, State = E, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 
+
+================
+
+L2: INVALIDATELINE 01100000 
+BusOp: READ, Address: 00800000, Snoop Result HIT 
+L2: SENDLINE 00800000 
+L2: INVALIDATELINE 01900000 
+BusOp: READ, Address: 00900000, Snoop Result HIT 
+L2: SENDLINE 00900000 
+L2: INVALIDATELINE 01500000 
+BusOp: READ, Address: 00A00000, Snoop Result HIT 
+L2: SENDLINE 00A00000 
+L2: INVALIDATELINE 01D00000 
+BusOp: READ, Address: 00B00000, Snoop Result HIT 
+L2: SENDLINE 00B00000 
+L2: INVALIDATELINE 01300000 
+BusOp: READ, Address: 00C00000, Snoop Result HIT 
+L2: SENDLINE 00C00000 
+L2: INVALIDATELINE 01B00000 
+BusOp: READ, Address: 00D00000, Snoop Result HIT 
+L2: SENDLINE 00D00000 
+L2: INVALIDATELINE 01700000 
+BusOp: READ, Address: 00E00000, Snoop Result HIT 
+L2: SENDLINE 00E00000 
+L2: INVALIDATELINE 01F00000 
+BusOp: READ, Address: 00F00000, Snoop Result HIT 
+L2: SENDLINE 00F00000 
+
+PRINTING CACHE
+++++++++++++++++
+Tag = 000, Set = 0000, State = E, Way = 00 
+Tag = 008, Set = 0000, State = S, Way = 01 
+Tag = 004, Set = 0000, State = E, Way = 02 
+Tag = 00C, Set = 0000, State = S, Way = 03 
+Tag = 002, Set = 0000, State = E, Way = 04 
+Tag = 00A, Set = 0000, State = S, Way = 05 
+Tag = 006, Set = 0000, State = E, Way = 06 
+Tag = 00E, Set = 0000, State = S, Way = 07 
+Tag = 001, Set = 0000, State = E, Way = 08 
+Tag = 009, Set = 0000, State = S, Way = 09 
+Tag = 005, Set = 0000, State = E, Way = 10 
+Tag = 00D, Set = 0000, State = S, Way = 11 
+Tag = 003, Set = 0000, State = E, Way = 12 
+Tag = 00B, Set = 0000, State = S, Way = 13 
+Tag = 007, Set = 0000, State = E, Way = 14 
+Tag = 00F, Set = 0000, State = S, Way = 15 
+PLRU for set 0: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+================
+
+Hits: 0, Misses: 32, Reads: 32, Writes: 0, Hit ratio: 0.000000 

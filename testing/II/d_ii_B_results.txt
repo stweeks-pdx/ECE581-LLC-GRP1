@@ -1,0 +1,111 @@
+BusOp: RWIM, Address: 10044280, Snoop Result HIT 
+L2: SENDLINE 10044280 
+L2: GETLINE 10044280 
+BusOp: RWIM, Address: 20044280, Snoop Result HITM 
+L2: SENDLINE 20044281 
+L2: GETLINE 20044281 
+BusOp: RWIM, Address: 30044280, Snoop Result NOHIT 
+L2: SENDLINE 30044282 
+L2: GETLINE 30044282 
+BusOp: RWIM, Address: 40044280, Snoop Result NOHIT 
+L2: SENDLINE 40044283 
+L2: GETLINE 40044283 
+BusOp: RWIM, Address: 50044280, Snoop Result HIT 
+L2: SENDLINE 50044280 
+L2: GETLINE 50044280 
+BusOp: RWIM, Address: 60044280, Snoop Result HITM 
+L2: SENDLINE 60044281 
+L2: GETLINE 60044281 
+BusOp: RWIM, Address: 70044280, Snoop Result NOHIT 
+L2: SENDLINE 70044282 
+L2: GETLINE 70044282 
+BusOp: RWIM, Address: 80044280, Snoop Result NOHIT 
+L2: SENDLINE 80044283 
+L2: GETLINE 80044283 
+BusOp: RWIM, Address: 90044280, Snoop Result HIT 
+L2: SENDLINE 90044280 
+L2: GETLINE 90044280 
+BusOp: RWIM, Address: A0044280, Snoop Result HITM 
+L2: SENDLINE A0044281 
+L2: GETLINE A0044281 
+BusOp: RWIM, Address: B0044280, Snoop Result NOHIT 
+L2: SENDLINE B0044282 
+L2: GETLINE B0044282 
+BusOp: RWIM, Address: C0044280, Snoop Result NOHIT 
+L2: SENDLINE C0044283 
+L2: GETLINE C0044283 
+BusOp: RWIM, Address: D0044280, Snoop Result HIT 
+L2: SENDLINE D0044280 
+L2: GETLINE D0044280 
+BusOp: RWIM, Address: E0044280, Snoop Result HITM 
+L2: SENDLINE E0044281 
+L2: GETLINE E0044281 
+BusOp: RWIM, Address: F0044280, Snoop Result NOHIT 
+L2: SENDLINE F0044282 
+L2: GETLINE F0044282 
+BusOp: RWIM, Address: 00044280, Snoop Result NOHIT 
+L2: SENDLINE 00044283 
+L2: GETLINE 00044283 
+
+PRINTING CACHE
+++++++++++++++++
+Tag = 100, Set = 110A, State = M, Way = 00 
+Tag = 200, Set = 110A, State = M, Way = 01 
+Tag = 300, Set = 110A, State = M, Way = 02 
+Tag = 400, Set = 110A, State = M, Way = 03 
+Tag = 500, Set = 110A, State = M, Way = 04 
+Tag = 600, Set = 110A, State = M, Way = 05 
+Tag = 700, Set = 110A, State = M, Way = 06 
+Tag = 800, Set = 110A, State = M, Way = 07 
+Tag = 900, Set = 110A, State = M, Way = 08 
+Tag = A00, Set = 110A, State = M, Way = 09 
+Tag = B00, Set = 110A, State = M, Way = 10 
+Tag = C00, Set = 110A, State = M, Way = 11 
+Tag = D00, Set = 110A, State = M, Way = 12 
+Tag = E00, Set = 110A, State = M, Way = 13 
+Tag = F00, Set = 110A, State = M, Way = 14 
+Tag = 000, Set = 110A, State = M, Way = 15 
+PLRU for set 4362: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+
+================
+
+L2: EVICTLINE 10044283 
+BusOp: WRITE, Address: 10044280, Snoop Result NOHIT 
+BusOp: RWIM, Address: ABA44280, Snoop Result NOHIT 
+L2: SENDLINE ABA44282 
+L2: GETLINE ABA44282 
+L2: EVICTLINE 90044283 
+BusOp: WRITE, Address: 90044280, Snoop Result NOHIT 
+BusOp: RWIM, Address: BCB44280, Snoop Result NOHIT 
+L2: SENDLINE BCB44282 
+L2: GETLINE BCB44282 
+L2: GETLINE 30044282 
+L2: EVICTLINE D0044283 
+BusOp: WRITE, Address: D0044280, Snoop Result NOHIT 
+BusOp: RWIM, Address: CDC44280, Snoop Result NOHIT 
+L2: SENDLINE CDC44282 
+L2: GETLINE CDC44282 
+
+PRINTING CACHE
+++++++++++++++++
+Tag = ABA, Set = 110A, State = M, Way = 00 
+Tag = 200, Set = 110A, State = M, Way = 01 
+Tag = 300, Set = 110A, State = M, Way = 02 
+Tag = 400, Set = 110A, State = M, Way = 03 
+Tag = 500, Set = 110A, State = M, Way = 04 
+Tag = 600, Set = 110A, State = M, Way = 05 
+Tag = 700, Set = 110A, State = M, Way = 06 
+Tag = 800, Set = 110A, State = M, Way = 07 
+Tag = BCB, Set = 110A, State = M, Way = 08 
+Tag = A00, Set = 110A, State = M, Way = 09 
+Tag = B00, Set = 110A, State = M, Way = 10 
+Tag = C00, Set = 110A, State = M, Way = 11 
+Tag = CDC, Set = 110A, State = M, Way = 12 
+Tag = E00, Set = 110A, State = M, Way = 13 
+Tag = F00, Set = 110A, State = M, Way = 14 
+Tag = 000, Set = 110A, State = M, Way = 15 
+PLRU for set 4362: 1 0 1 1 1 0 0 0 0 1 1 0 1 0 1 
+
+================
+
+Hits: 1, Misses: 19, Reads: 0, Writes: 20, Hit ratio: 0.052632 
