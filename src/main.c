@@ -53,7 +53,6 @@ int main(int argc, char *argv[]) {
             case 'h':
 		printf("Options for the program are:\n");
 		printf("s -- Silent mode. Default by 0\n");
-		printf("A -- Address width\n");
 		printf("c -- Cache capacity\n");
 		printf("a -- Cache associativity\n");
 		printf("l -- Cache line byte size\n");
