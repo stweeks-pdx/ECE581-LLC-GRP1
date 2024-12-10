@@ -7,7 +7,7 @@ endif
 
 IDIR=../include
 CC=gcc
-CFLAGS=-I$(IDIR) -std=c99 -Wall
+CFLAGS=-I$(IDIR) -std=c99 -Wall -lm
 ODIR=obj
 EXE=bin
 TGDIR=../testing/GenFiles/
